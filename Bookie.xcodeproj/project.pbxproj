@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50528732CC200978F46 /* AppDelegate.swift */; };
 		AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50728732CC200978F46 /* SceneDelegate.swift */; };
-		AD61C50A28732CC200978F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50928732CC200978F46 /* ViewController.swift */; };
 		AD61C50D28732CC200978F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C50B28732CC200978F46 /* Main.storyboard */; };
 		AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50E28732CC200978F46 /* Bookie.xcdatamodeld */; };
 		AD61C51228732CC700978F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51128732CC700978F46 /* Assets.xcassets */; };
 		AD61C51528732CC700978F46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51328732CC700978F46 /* LaunchScreen.storyboard */; };
+		AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */; };
+		ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD449A528733878006930F0 /* ChaptersViewController.swift */; };
+		ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD449A728734304006930F0 /* CoreDataManager.swift */; };
+		ADF0EC5E2873648E00739526 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0EC5D2873648E00739526 /* NoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AD61C50228732CC200978F46 /* Bookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD61C50528732CC200978F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD61C50728732CC200978F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD61C50928732CC200978F46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD61C50C28732CC200978F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD61C50F28732CC200978F46 /* Bookie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookie.xcdatamodel; sourceTree = "<group>"; };
 		AD61C51128732CC700978F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD61C51428732CC700978F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD61C51628732CC700978F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
+		ADD449A528733878006930F0 /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
+		ADD449A728734304006930F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		ADF0EC5D2873648E00739526 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +66,41 @@
 			children = (
 				AD61C50528732CC200978F46 /* AppDelegate.swift */,
 				AD61C50728732CC200978F46 /* SceneDelegate.swift */,
-				AD61C50928732CC200978F46 /* ViewController.swift */,
-				AD61C50B28732CC200978F46 /* Main.storyboard */,
+				ADD449A928734309006930F0 /* Model */,
+				AD61C51F28732DA200978F46 /* Controller */,
+				AD61C51C28732D0300978F46 /* View */,
 				AD61C51128732CC700978F46 /* Assets.xcassets */,
-				AD61C51328732CC700978F46 /* LaunchScreen.storyboard */,
 				AD61C51628732CC700978F46 /* Info.plist */,
 				AD61C50E28732CC200978F46 /* Bookie.xcdatamodeld */,
 			);
 			path = Bookie;
+			sourceTree = "<group>";
+		};
+		AD61C51C28732D0300978F46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD61C51328732CC700978F46 /* LaunchScreen.storyboard */,
+				AD61C50B28732CC200978F46 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD61C51F28732DA200978F46 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */,
+				ADF0EC5D2873648E00739526 /* NoteViewController.swift */,
+				ADD449A528733878006930F0 /* ChaptersViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ADD449A928734309006930F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADD449A728734304006930F0 /* CoreDataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF0EC5E2873648E00739526 /* NoteViewController.swift in Sources */,
+				ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */,
+				AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */,
 				AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */,
-				AD61C50A28732CC200978F46 /* ViewController.swift in Sources */,
 				AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */,
+				ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */,
 				AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
