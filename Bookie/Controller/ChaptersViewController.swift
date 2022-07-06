@@ -85,7 +85,7 @@ class ChaptersViewController: UITableViewController {
     //MARK: Table View Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToNotes", sender: self)
+        performSegue(withIdentifier: K.segueIDToChapter, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

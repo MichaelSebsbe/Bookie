@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD3AB868287495190082C8D6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB867287495190082C8D6 /* BookCell.swift */; };
+		AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB869287496110082C8D6 /* SearchViewController.swift */; };
+		AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86B2874971E0082C8D6 /* BookSearch.swift */; };
+		AD3AB86E28749A1C0082C8D6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */; };
+		AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */; };
+		AD3AB872287500040082C8D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB871287500040082C8D6 /* Constants.swift */; };
 		AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50528732CC200978F46 /* AppDelegate.swift */; };
 		AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50728732CC200978F46 /* SceneDelegate.swift */; };
 		AD61C50D28732CC200978F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C50B28732CC200978F46 /* Main.storyboard */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD3AB867287495190082C8D6 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		AD3AB869287496110082C8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AD3AB86B2874971E0082C8D6 /* BookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearch.swift; sourceTree = "<group>"; };
+		AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		AD3AB871287500040082C8D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD61C50228732CC200978F46 /* Bookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD61C50528732CC200978F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD61C50728732CC200978F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +93,7 @@
 			children = (
 				AD61C51328732CC700978F46 /* LaunchScreen.storyboard */,
 				AD61C50B28732CC200978F46 /* Main.storyboard */,
+				AD3AB867287495190082C8D6 /* BookCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -91,6 +104,7 @@
 				AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */,
 				ADF0EC5D2873648E00739526 /* NoteViewController.swift */,
 				ADD449A528733878006930F0 /* ChaptersViewController.swift */,
+				AD3AB869287496110082C8D6 /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -99,6 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				ADD449A728734304006930F0 /* CoreDataManager.swift */,
+				AD3AB86B2874971E0082C8D6 /* BookSearch.swift */,
+				AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */,
+				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
+				AD3AB871287500040082C8D6 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,10 +193,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF0EC5E2873648E00739526 /* NoteViewController.swift in Sources */,
+				AD3AB868287495190082C8D6 /* BookCell.swift in Sources */,
 				ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */,
+				AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */,
 				AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */,
 				AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */,
+				AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */,
+				AD3AB872287500040082C8D6 /* Constants.swift in Sources */,
 				AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */,
+				AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */,
+				AD3AB86E28749A1C0082C8D6 /* NetworkRequest.swift in Sources */,
 				ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */,
 				AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */,
 			);

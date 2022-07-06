@@ -20,36 +20,36 @@ class BookShelfViewController: UITableViewController {
         }
      }
 
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Add Book", message: "Insert Book Titile", preferredStyle: .alert)
-        
-        alertController.addTextField()
-        
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
-            if let booktitle = alertController.textFields?.first?.text,
-               booktitle.count > 0 {
-                let book = Book(context: self.coreDataMananger.container.viewContext)
-                book.title = booktitle
-                
-                self.books.append(book)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-                self.coreDataMananger.saveItems()
-                // save
-            }
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancle", style: .cancel)
-        
-        alertController.addAction(addAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true)
-        
-    }
+//    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+//        let alertController = UIAlertController(title: "Add Book", message: "Insert Book Titile", preferredStyle: .alert)
+//        
+//        alertController.addTextField()
+//        
+//        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+//            if let booktitle = alertController.textFields?.first?.text,
+//               booktitle.count > 0 {
+//                let book = Book(context: self.coreDataMananger.container.viewContext)
+//                book.title = booktitle
+//                
+//                self.books.append(book)
+//                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//                
+//                self.coreDataMananger.saveItems()
+//                // save
+//            }
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancle", style: .cancel)
+//        
+//        alertController.addAction(addAction)
+//        alertController.addAction(cancelAction)
+//        
+//        self.present(alertController, animated: true)
+//        
+//    }
     
     
     // MARK: - Table view data source
@@ -61,27 +61,49 @@ class BookShelfViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShelfCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.bookCellID, for: indexPath) as! BookCell
 
         var content = cell.defaultContentConfiguration()
         content.text = books[indexPath.row].title
 
-        cell.contentConfiguration = content
+        cell.titleLabel.text = books[indexPath.row].title
+        cell.authorLabel.text = books[indexPath.row].author
+        if let imageData = books[indexPath.row].imageData,
+           let uIImage = UIImage(data: imageData) {
+            cell.bookImageView.image = uIImage
+        }
         
         return cell
     }
 
-    // MARK: -Tabel View delegate Methods
+    // MARK: -Table View delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToChapters", sender: self)
+        performSegue(withIdentifier: K.segueIDToChapter, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let chaptersVC = segue.destination as! ChaptersViewController
-        let index = tableView.indexPathForSelectedRow?.row
-        chaptersVC.book = books[index!]
+        if let chaptersVC = segue.destination as? ChaptersViewController {
+            let index = tableView.indexPathForSelectedRow?.row
+            chaptersVC.book = books[index!]
+        }
+    }
+    
+    func addBook(_ bookSearch: BookSearch){
+        let book = Book(context: coreDataMananger.container.viewContext)
+        book.title = bookSearch.title
+        book.author = bookSearch.author
+        book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
         
+        books.append(book)
+        
+        tableView.reloadData()
+        
+        coreDataMananger.saveItems()
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
 }
