@@ -22,38 +22,24 @@ struct NetworkRequest {
             
             let searchResponse = try JSONDecoder().decode(SearchResponse.self, from: data)
             
-            var image: UIImage? = nil
-            
             
             if searchResponse.docs.isEmpty {
                 bookSearch = []
                 
             } else if searchResponse.docs.count < 10 {
                 for doc in searchResponse.docs {
-                    if let isbn = doc.isbn?.last {
-                        image = try? await fetchImage(for: isbn)
-                    }
-                    let bookFromSearch = BookSearch(title: doc.title, author: doc.author_name?.joined(separator: ", "), image: image)
+                
+                    let bookFromSearch = BookSearch(title: doc.title, author: doc.author_name?.joined(separator: ", "), isbn: doc.isbn?.last)
                     bookSearch.append(bookFromSearch)
                 }
             } else {
                 // only get 10 the first ten results
                 for i in 0...9 {
-                    if let isbn = searchResponse.docs[i].isbn?.last{
-                        image = try? await fetchImage(for: isbn)
-                    }
                     
-                    let bookFromSearch = BookSearch(title: searchResponse.docs[i].title, author: searchResponse.docs[i].author_name?.joined(separator: ", "), image: image)
+                    let bookFromSearch = BookSearch(title: searchResponse.docs[i].title, author: searchResponse.docs[i].author_name?.joined(separator: ", "), isbn: searchResponse.docs[i].isbn?.last)
                     bookSearch.append(bookFromSearch)
                 }
             }
-            
-//            if searchResponse.docs.count > 0,
-//            let isbn = searchResponse.docs[0].isbn?.last{
-//                image = try? await fetchImage(for: isbn)
-//                bookSearch = BookSearch(title: searchResponse.docs[0].title, author: searchResponse.docs[0].author_name?.joined(separator: ", "), image: image)
-//            }
-           
             
         } else {
             print("Error fetching URL data")
@@ -63,7 +49,7 @@ struct NetworkRequest {
     }
     
     
-    static private func fetchImage(for iSBN: String) async throws -> UIImage? {
+    static func fetchImage(for iSBN: String) async throws -> UIImage? {
         var image: UIImage?
         let url = createImageURL(iSBN: iSBN)
 
@@ -71,7 +57,7 @@ struct NetworkRequest {
             
         if let httpResponse = reponse as? HTTPURLResponse,
                httpResponse.statusCode == 200{
-                image = UIImage(data: data)
+            image = UIImage(data: data)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch)
         } else {
             print("Error Fetching for Image")
         }

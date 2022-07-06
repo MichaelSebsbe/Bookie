@@ -11,7 +11,8 @@ import UIKit
 struct BookSearch {
     let title: String
     let author: String?
-    let image: UIImage?
+    let isbn: String?
+    var image: UIImage?
 }
 
 

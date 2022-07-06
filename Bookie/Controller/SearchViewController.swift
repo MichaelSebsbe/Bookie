@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UITableViewController{
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cantFindLabel: UILabel!
     
@@ -21,7 +21,7 @@ class SearchViewController: UITableViewController{
         cantFindLabel.isHidden = true
         searchBar.placeholder = "Search by book title"
     }
-
+    
     // MARK: - Tableview delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -35,13 +35,13 @@ class SearchViewController: UITableViewController{
     }
     
     // MARK: - Tableview data source
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return searchResults.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchCell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell
@@ -51,15 +51,25 @@ class SearchViewController: UITableViewController{
         searchCell.titleLabel.text = book.title
         searchCell.authorLabel.text = book.author
         
-        if let bookCover = book.image {
-            searchCell.bookImageView.image = bookCover
+        if let isbn = book.isbn {
+            
+            Task{
+                do {
+                    let coverImage = try await NetworkRequest.fetchImage(for: isbn) ?? UIImage(systemName: "book.fill")
+                    searchCell.bookImageView.image = coverImage
+                    searchResults[indexPath.row].image = coverImage
+                    
+                }
+                catch {print(error.localizedDescription)}
+                
+            }
         } else {
             searchCell.bookImageView.image = UIImage(systemName: "book.fill")
         }
-    
+        
         return searchCell
     }
-
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -67,35 +77,35 @@ extension SearchViewController: UISearchBarDelegate {
         cantFindLabel.isHidden = true
         
         if let searchString = searchBar.text,
-            searchString.count > 0 {
+           searchString.count > 0 {
             
             searchResults = []
             tableView.reloadData()
             
-           Task {
-               do {
-                   let bookSearch = try await NetworkRequest.fetchBook(for: searchString)
-                   if bookSearch.count > 0 {
+            Task {
+                do {
+                    let bookSearch = try await NetworkRequest.fetchBook(for: searchString)
+                    if bookSearch.count > 0 {
                         searchResults = bookSearch
-                   } else {
-                       searchResults = []
-                       self.cantFindLabel.isHidden = false
-                   }
-                   
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
-                   
-               } catch {
-                   print(error.localizedDescription)
-               }
+                    } else {
+                        searchResults = []
+                        self.cantFindLabel.isHidden = false
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            searchBar.placeholder = "Title"
+            searchBar.placeholder = "Search Book by Title"
         }
     }
 }
