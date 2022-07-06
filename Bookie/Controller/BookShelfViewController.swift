@@ -8,64 +8,32 @@
 import UIKit
 
 class BookShelfViewController: UITableViewController {
-
+    
     var books = [Book]()
-    let coreDataMananger = CoreDataManager()
+    let coreDataManager = CoreDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedBooks = coreDataMananger.loadItems(with: Book.fetchRequest()){
+        if let savedBooks = coreDataManager.loadItems(with: Book.fetchRequest()){
             self.books = savedBooks
         }
-     }
-
-//    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-//        let alertController = UIAlertController(title: "Add Book", message: "Insert Book Titile", preferredStyle: .alert)
-//        
-//        alertController.addTextField()
-//        
-//        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
-//            if let booktitle = alertController.textFields?.first?.text,
-//               booktitle.count > 0 {
-//                let book = Book(context: self.coreDataMananger.container.viewContext)
-//                book.title = booktitle
-//                
-//                self.books.append(book)
-//                
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//                
-//                self.coreDataMananger.saveItems()
-//                // save
-//            }
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancle", style: .cancel)
-//        
-//        alertController.addAction(addAction)
-//        alertController.addAction(cancelAction)
-//        
-//        self.present(alertController, animated: true)
-//        
-//    }
+    }
     
+    // MARK: - Tableview data source
     
-    // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
+        
         return books.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.bookCellID, for: indexPath) as! BookCell
-
+        
         var content = cell.defaultContentConfiguration()
         content.text = books[indexPath.row].title
-
+        
         cell.titleLabel.text = books[indexPath.row].title
         cell.authorLabel.text = books[indexPath.row].author
         if let imageData = books[indexPath.row].imageData,
@@ -75,8 +43,40 @@ class BookShelfViewController: UITableViewController {
         
         return cell
     }
-
-    // MARK: -Table View delegate Methods
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let alertController = UIAlertController(title: "Delete '\(books[indexPath.row].title ?? "Book")'?", message: "All chapters and Notes within the chapters will also be deleted", preferredStyle: .alert)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                let bookToDelete = self.books[indexPath.row]
+                //let deleteRequest = books[indexPath.row]
+                
+                self.coreDataManager.container.viewContext.delete(bookToDelete)
+                self.books.remove(at: indexPath.row)
+                
+                DispatchQueue.main.async {
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.coreDataManager.saveItems()
+                }
+                
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true)
+            
+        }
+    }
+    
+    // MARK: -Tableview delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: K.segueIDToChapter, sender: self)
@@ -90,7 +90,7 @@ class BookShelfViewController: UITableViewController {
     }
     
     func addBook(_ bookSearch: BookSearch){
-        let book = Book(context: coreDataMananger.container.viewContext)
+        let book = Book(context: coreDataManager.container.viewContext)
         book.title = bookSearch.title
         book.author = bookSearch.author
         book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
@@ -99,11 +99,8 @@ class BookShelfViewController: UITableViewController {
         
         tableView.reloadData()
         
-        coreDataMananger.saveItems()
+        coreDataManager.saveItems()
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
+
 }

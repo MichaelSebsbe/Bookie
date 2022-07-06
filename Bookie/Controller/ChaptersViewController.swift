@@ -25,6 +25,11 @@ class ChaptersViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // because date modified will change after note is edited
+        tableView.reloadData()
+    }
+    
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add Chapter", message: "Enter Chapter's Title", preferredStyle: .alert)
         alertController.addTextField { textField in
@@ -80,6 +85,38 @@ class ChaptersViewController: UITableViewController {
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let alertController = UIAlertController(title: "Delete '\(chapters[indexPath.row].title ?? "")'?", message: "Note within the chapter will be deleted", preferredStyle: .alert)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                let chapterToDelete = self.chapters[indexPath.row]
+                //let deleteRequest = books[indexPath.row]
+                
+                self.coreDataManager.container.viewContext.delete(chapterToDelete)
+                self.chapters.remove(at: indexPath.row)
+                
+                DispatchQueue.main.async {
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.coreDataManager.saveItems()
+                }
+                
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true)
+            
+        }
     }
     
     //MARK: Table View Delegate Methods

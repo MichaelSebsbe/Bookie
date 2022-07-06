@@ -13,10 +13,13 @@ class CoreDataManager {
     let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     func saveItems(){
-        do {
-           try container.viewContext.save()
-        } catch {
-            print(error.localizedDescription)
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+            
         }
     }
     

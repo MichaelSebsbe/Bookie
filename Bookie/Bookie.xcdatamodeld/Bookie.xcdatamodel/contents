@@ -4,12 +4,12 @@
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="childChapter" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chapter" inverseName="parentBook" inverseEntity="Chapter"/>
+        <relationship name="childChapter" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Chapter" inverseName="parentBook" inverseEntity="Chapter"/>
     </entity>
     <entity name="Chapter" representedClassName="Chapter" syncable="YES" codeGenerationType="class">
         <attribute name="lastModified" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="childNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="parentChapter" inverseEntity="Note"/>
+        <relationship name="childNote" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Note" inverseName="parentChapter" inverseEntity="Note"/>
         <relationship name="parentBook" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="childChapter" inverseEntity="Book"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
@@ -19,7 +19,7 @@
     </entity>
     <elements>
         <element name="Book" positionX="-159.93359375" positionY="-93.9140625" width="128" height="89"/>
-        <element name="Chapter" positionX="21.9140625" positionY="-19.19140625" width="128" height="103"/>
-        <element name="Note" positionX="230.890625" positionY="6.66796875" width="128" height="88"/>
+        <element name="Chapter" positionX="21.9140625" positionY="-19.19140625" width="128" height="89"/>
+        <element name="Note" positionX="230.890625" positionY="6.66796875" width="128" height="74"/>
     </elements>
 </model>
