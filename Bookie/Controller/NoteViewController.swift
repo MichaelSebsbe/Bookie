@@ -15,15 +15,20 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var chapterTitle: UILabel!
     @IBOutlet weak var textView: UITextView!
-  
+    @IBOutlet weak var formatButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textView.delegate = self
+        textView.keyboardDismissMode = .interactive
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 35)
+        chapterTitle.font = textView.font
         chapterTitle.text = chapter?.title
         loadNote()
         
+        makeSelfKeyboardObserver() //minor adjuastment to the text view when keyboard shows and hides (on top of IQKeyboard Manager)
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,7 +40,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         saveNote()
     }
-    
+
     // MARK: Note-Data Manipulation
     // Made it a func incase I want to change when I save the note
     func saveNote() {
@@ -59,4 +64,38 @@ class NoteViewController: UIViewController, UITextViewDelegate {
             textView.text = note?.text
         }
     }
+    
+    // MARK: Keyboard Adjustment Methods
+    
+    fileprivate func makeSelfKeyboardObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        //if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            //let keyboardRectangle = keyboardFrame.cgRectValue
+            //let keyboardHeight = keyboardRectangle.height
+            textView.frame.origin.y -= 30 // a bit sketchy but good for now
+       // }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        //if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            //let keyboardRectangle = keyboardFrame.cgRectValue
+            //let keyboardHeight = keyboardRectangle.height
+            textView.frame.origin.y += 30 // a bit sketchy but good for now
+        //}
+    }
+    
 }

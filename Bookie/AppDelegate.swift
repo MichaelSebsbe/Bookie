@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import AVFoundation
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
          do {
-             try audioSession.setCategory(.playback)
+             try audioSession.setCategory(.ambient)
          } catch {
              print("Setting category to AVAudioSessionCategoryPlayback failed.")
          }
         
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
         return true
     }
 

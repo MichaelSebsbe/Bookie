@@ -245,26 +245,63 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-5w-B1b">
-                                <rect key="frame" x="0.0" y="122" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="740"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <attributedString key="attributedText"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <mutableString key="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu facilisis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque metus diam, vestibulum at justo a, rhoncus efficitur eros. Nullam libero mi, pulvinar a sagittis non, accumsan nec erat. Mauris fringilla, ligula vitae porttitor porta, lectus eros porta arcu, nec lobortis ipsum eros eget risus. Nunc pharetra, lorem sit amet mattis accumsan, ante nisi accumsan sem, et rhoncus orci turpis non urna. Curabitur et ante urna. Ut nisl turpis, finibus sed efficitur rhoncus, tristique rutrum nibh. Ut vitae libero nec augue tempor condimentum vitae sit amet dolor. Ut blandit sed arcu a maximus. Mauris luctus commodo nunc, sed rhoncus nisl egestas in. Nam imperdiet vel ex gravida consectetur. Vivamus mauris lacus, iaculis eget justo eu, viverra fringilla velit. Integer sed leo sed mi rutrum finibus at et risus.
+Pellentesque aliquam ut purus a condimentum. Suspendisse sit amet diam eu lacus malesuada luctus. Fusce suscipit felis tellus, non placerat dui imperdiet hendrerit. Sed eu gravida felis, ac dapibus purus. Donec cursus metus magna, in interdum nulla consequat non. Sed tincidunt urna at enim rutrum ultrices. Nunc sed ex eu ex consequat consectetur. Vestibulum efficitur ultricies quam sed tincidunt.
+Vivamus ultrices diam nec risus pharetra cursus. Proin egestas est et venenatis tempor. Quisque commodo velit diam, sed pretium nisi vehicula id. Donec vel ligula non massa rhoncus ultricies eget vitae metus. Maecenas sollicitudin tellus volutpat, mattis tortor non, tincidunt quam. Nullam feugiat, purus tristique egestas finibus, nisl lacus elementum est, sed dapibus libero arcu eu lectus. Maecenas fringilla erat orci, nec tincidunt ligula posuere id. Aliquam laoreet libero sagittis diam condimentum aliquet. Nulla eleifend, diam interdum convallis pharetra, ex libero luctus risus, at dapibus mauris libero malesuada mauris. Cras consequat vitae metus sit amet fermentum. Nullam imperdiet elementum mauris non pellentesque. Maecenas ipsum est, porta et suscipit ut, sodales quis nisl. Proin lacus diam, semper id tortor at, venenatis convallis nisi. Nunc ut turpis sit amet libero vehicula ornare quis in tellus.
+Nunc aliquet risus nec nibh gravida, viverra lacinia nulla vestibulum. Vestibulum molestie dapibus odio, pretium euismod mauris euismod pellentesque. Nulla in tortor ac ex ultricies ultrices. Vivamus pellentesque congue risus, ac varius orci scelerisque ut. Maecenas blandit eu massa sit amet tincidunt. Cras sapien quam, lacinia a elit eget, elementum dignissim orci. Ut posuere, nibh id lacinia varius, elit odio iaculis mauris, eu iaculis nisi erat eu purus. Nulla ac arcu facilisis, dignissim orci et, vehicula tellus. Sed laoreet nunc eget arcu posuere malesuada. Etiam feugiat rutrum turpis accumsan rhoncus. Donec a ligula eu velit auctor bibendum in quis nulla. Cras lacinia eleifend velit, at viverra felis posuere id. Pellentesque auctor cursus mi, nec porttitor mi tempus auctor.
+Integer sit amet egestas arcu, id vestibulum risus. Praesent vitae sagittis ligula, quis lacinia magna. Etiam sem lacus, varius sit amet lacus a, maximus egestas nunc. Duis iaculis non magna nec sollicitudin. Aliquam at luctus nisi. Ut id diam scelerisque, sodales nisl sed, dapibus nulla. Phasellus eget commodo magna. Sed non commodo nulla. Vestibulum commodo risus eros. Suspendisse est purus, aliquet quis arcu quis, mattis hendrerit purus. Vivamus pretium, neque eu vestibulum vulputate, leo ligula vulputate purus, dapibus elementum dui metus eget diam.
+Nunc blandit, dolor id commodo rhoncus, diam nunc finibus nisl, et pellentesque quam velit id nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi erat, suscipit sed pulvinar id, gravida quis massa. Etiam vulputate pretium massa vitae facilisis. Quisque lobortis felis sed orci porttitor, quis facilisis eros ullamcorper. Donec finibus fringilla nunc in accumsan. Proin rutrum cursus urna. Pellentesque mi nulla, gravida sit amet pharetra vel, dapibus sed ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Nam dapibus tellus tortor, vitae malesuada massa blandit eleifend.
+Etiam blandit vitae lacus a vulputate. Phasellus faucibus faucibus enim gravida suscipit. Nulla facilisi. Etiam in orci diam. Etiam eu mattis felis. Aenean at dapibus lorem. Vivamus sollicitudin, dui mollis sodales dictum, magna metus varius sapien, nec iaculis diam tellus non odio. Proin commodo mattis dapibus. Suspendisse condimentum scelerisque ornare. Phasellus porttitor ex augue, eget eleifend neque venenatis sed. Aenean at tortor justo. Quisque consequat nulla sed ex mattis viverra. Cras ut rhoncus ipsum.
+</mutableString>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="Baskerville"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Curabitur et elit orci. Quisque consequat ligula nulla, quis mollis nibh dictum non. Nam sagittis elementum massa sed pharetra. Integer blandit sapien ullamcorper eros tempus, vitae volutpat massa suscipit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut cursus finibus dui in bibendum. Integer est ante, vestibulum sed blandit non, tincidunt ac nulla. Aenean at libero eget elit volutpat pretium. Pellentesque rutrum est in mollis aliquet.</string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="14" name="Baskerville"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="charWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4BW-bN-iRY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Cdg-5w-B1b" secondAttribute="bottom" id="4sK-HM-aba"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="trailing" secondItem="4BW-bN-iRY" secondAttribute="trailing" id="GWE-DE-EeE"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="leading" secondItem="4BW-bN-iRY" secondAttribute="leading" id="Q0U-MI-5Fw"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="top" secondItem="cGY-Wz-087" secondAttribute="bottom" constant="10" id="TWL-c2-0Wc"/>
                             <constraint firstItem="cGY-Wz-087" firstAttribute="centerX" secondItem="2Fz-hw-6VX" secondAttribute="centerX" id="X1X-ra-cpi"/>
+                            <constraint firstItem="4BW-bN-iRY" firstAttribute="bottom" secondItem="Cdg-5w-B1b" secondAttribute="bottom" id="a1m-Dg-ZHQ"/>
                             <constraint firstItem="cGY-Wz-087" firstAttribute="top" secondItem="4BW-bN-iRY" secondAttribute="top" id="kwh-ap-FB9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="w0N-hu-NXA"/>
+                    <navigationItem key="navigationItem" id="w0N-hu-NXA">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="textformat.size" catalog="system" id="bcU-qe-30o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="chapterTitle" destination="cGY-Wz-087" id="EH1-bP-r5I"/>
+                        <outlet property="formatButton" destination="bcU-qe-30o" id="0nt-v9-Va9"/>
                         <outlet property="textView" destination="Cdg-5w-B1b" id="cPZ-8w-XBS"/>
                     </connections>
                 </viewController>
@@ -275,6 +312,7 @@
     </scenes>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
+        <image name="textformat.size" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
