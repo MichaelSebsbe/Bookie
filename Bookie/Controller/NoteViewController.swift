@@ -25,6 +25,10 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         loadNote()
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+      SoundEffect.shared.playSoundEffect(.bookClose)
+    }
 
     // MARK: TextView Delegate Methods
     

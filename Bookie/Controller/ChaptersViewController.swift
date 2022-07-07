@@ -105,6 +105,7 @@ class ChaptersViewController: UITableViewController {
                 
                 DispatchQueue.main.async {
                     tableView.deleteRows(at: [indexPath], with: .fade)
+                    SoundEffect.shared.playSoundEffect(.deletion)
                     self.coreDataManager.saveItems()
                 }
                 
@@ -123,6 +124,7 @@ class ChaptersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: K.segueIDToNotes, sender: self)
+        SoundEffect.shared.playSoundEffect(.pageFlip)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

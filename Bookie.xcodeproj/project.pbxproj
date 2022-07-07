@@ -20,6 +20,11 @@
 		AD61C51228732CC700978F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51128732CC700978F46 /* Assets.xcassets */; };
 		AD61C51528732CC700978F46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51328732CC700978F46 /* LaunchScreen.storyboard */; };
 		AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */; };
+		AD6846102876049000F9607D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD68460F2876049000F9607D /* MapKit.framework */; };
+		ADABA2D02876209800449CDA /* pageFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2CF2876209800449CDA /* pageFlip.mp3 */; };
+		ADABA2D2287620D800449CDA /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABA2D1287620D800449CDA /* SoundEffects.swift */; };
+		ADABA2D52876229F00449CDA /* deletion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2D32876229F00449CDA /* deletion.mp3 */; };
+		ADABA2D62876229F00449CDA /* bookClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2D42876229F00449CDA /* bookClose.mp3 */; };
 		ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD449A528733878006930F0 /* ChaptersViewController.swift */; };
 		ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD449A728734304006930F0 /* CoreDataManager.swift */; };
 		ADF0EC5E2873648E00739526 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0EC5D2873648E00739526 /* NoteViewController.swift */; };
@@ -41,6 +46,11 @@
 		AD61C51428732CC700978F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD61C51628732CC700978F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
+		AD68460F2876049000F9607D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		ADABA2CF2876209800449CDA /* pageFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pageFlip.mp3; sourceTree = "<group>"; };
+		ADABA2D1287620D800449CDA /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
+		ADABA2D32876229F00449CDA /* deletion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = deletion.mp3; sourceTree = "<group>"; };
+		ADABA2D42876229F00449CDA /* bookClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bookClose.mp3; sourceTree = "<group>"; };
 		ADD449A528733878006930F0 /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
 		ADD449A728734304006930F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ADF0EC5D2873648E00739526 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD6846102876049000F9607D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +71,12 @@
 		AD61C4F928732CC200978F46 = {
 			isa = PBXGroup;
 			children = (
+				ADABA2D42876229F00449CDA /* bookClose.mp3 */,
+				ADABA2D32876229F00449CDA /* deletion.mp3 */,
+				ADABA2CF2876209800449CDA /* pageFlip.mp3 */,
 				AD61C50428732CC200978F46 /* Bookie */,
 				AD61C50328732CC200978F46 /* Products */,
+				AD68460E2876049000F9607D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,11 +117,19 @@
 			isa = PBXGroup;
 			children = (
 				AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */,
-				ADF0EC5D2873648E00739526 /* NoteViewController.swift */,
 				ADD449A528733878006930F0 /* ChaptersViewController.swift */,
+				ADF0EC5D2873648E00739526 /* NoteViewController.swift */,
 				AD3AB869287496110082C8D6 /* SearchViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		AD68460E2876049000F9607D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD68460F2876049000F9607D /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ADD449A928734309006930F0 /* Model */ = {
@@ -117,6 +140,7 @@
 				AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */,
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
 				AD3AB871287500040082C8D6 /* Constants.swift */,
+				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +203,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADABA2D52876229F00449CDA /* deletion.mp3 in Resources */,
+				ADABA2D62876229F00449CDA /* bookClose.mp3 in Resources */,
+				ADABA2D02876209800449CDA /* pageFlip.mp3 in Resources */,
 				AD61C51528732CC700978F46 /* LaunchScreen.storyboard in Resources */,
 				AD61C51228732CC700978F46 /* Assets.xcassets in Resources */,
 				AD61C50D28732CC200978F46 /* Main.storyboard in Resources */,
@@ -202,6 +229,7 @@
 				AD3AB872287500040082C8D6 /* Constants.swift in Sources */,
 				AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */,
 				AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */,
+				ADABA2D2287620D800449CDA /* SoundEffects.swift in Sources */,
 				AD3AB86E28749A1C0082C8D6 /* NetworkRequest.swift in Sources */,
 				ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */,
 				AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */,
@@ -364,7 +392,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Bookie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.BookieMike;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -392,7 +420,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Bookie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.BookieMike;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -7,17 +7,19 @@
 
 import UIKit
 
+
 class BookShelfViewController: UITableViewController {
     
     var books = [Book]()
     let coreDataManager = CoreDataManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let savedBooks = coreDataManager.loadItems(with: Book.fetchRequest()){
             self.books = savedBooks
         }
+        title = "BookShelf"
     }
     
     // MARK: - Tableview data source
@@ -49,8 +51,8 @@ class BookShelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
-            
             let alertController = UIAlertController(title: "Delete '\(books[indexPath.row].title ?? "Book")'?", message: "All chapters and Notes within the chapters will also be deleted", preferredStyle: .alert)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
@@ -62,6 +64,7 @@ class BookShelfViewController: UITableViewController {
                 
                 DispatchQueue.main.async {
                     tableView.deleteRows(at: [indexPath], with: .fade)
+                    SoundEffect.shared.playSoundEffect(.deletion)
                     self.coreDataManager.saveItems()
                 }
                 
@@ -80,6 +83,7 @@ class BookShelfViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: K.segueIDToChapter, sender: self)
+        SoundEffect.shared.playSoundEffect(.pageFlip)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
