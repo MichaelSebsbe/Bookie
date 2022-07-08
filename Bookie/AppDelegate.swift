@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         print("\(path)")
+        var pathUserDefaults: [AnyObject] = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true) as [AnyObject]
+            let folder: String = pathUserDefaults[0] as! String
+            NSLog("Your NSUserDefaults are stored in this folder: %@/Preferences", folder)
+        
         
         let audioSession = AVAudioSession.sharedInstance()
          do {

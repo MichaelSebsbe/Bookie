@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD380457287733CA00054ABC /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD380456287733CA00054ABC /* IQKeyboardManagerSwift */; };
+		AD38045D287767DF00054ABC /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38045C287767DF00054ABC /* AppearanceManager.swift */; };
 		AD3AB868287495190082C8D6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB867287495190082C8D6 /* BookCell.swift */; };
 		AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB869287496110082C8D6 /* SearchViewController.swift */; };
 		AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86B2874971E0082C8D6 /* BookSearch.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD38045C287767DF00054ABC /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		AD3AB867287495190082C8D6 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		AD3AB869287496110082C8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AD3AB86B2874971E0082C8D6 /* BookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearch.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
 				AD3AB871287500040082C8D6 /* Constants.swift */,
 				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
+				AD38045C287767DF00054ABC /* AppearanceManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				AD3AB868287495190082C8D6 /* BookCell.swift in Sources */,
 				ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */,
 				AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */,
+				AD38045D287767DF00054ABC /* AppearanceManager.swift in Sources */,
 				AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */,
 				AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */,
 				AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */,

@@ -41,6 +41,17 @@ class ChaptersViewController: UITableViewController {
             
             if let title = alertController.textFields?.first?.text,
                title.count > 0 {
+                
+                if self.chapters.contains(where: {$0.title == title
+                }) {
+                    let texfield = alertController.textFields?.first
+                    texfield?.placeholder = "Choose a different Name"
+                    texfield?.text = ""
+                    self.present(alertController, animated: true)
+                    return
+                }
+                
+                
                 let chapter = Chapter(context: self.coreDataManager.container.viewContext)
                 chapter.parentBook = self.book
                 chapter.title = title

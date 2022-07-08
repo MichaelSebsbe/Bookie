@@ -247,74 +247,144 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-5w-B1b">
                                 <rect key="frame" x="0.0" y="122" width="414" height="740"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <mutableString key="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu facilisis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque metus diam, vestibulum at justo a, rhoncus efficitur eros. Nullam libero mi, pulvinar a sagittis non, accumsan nec erat. Mauris fringilla, ligula vitae porttitor porta, lectus eros porta arcu, nec lobortis ipsum eros eget risus. Nunc pharetra, lorem sit amet mattis accumsan, ante nisi accumsan sem, et rhoncus orci turpis non urna. Curabitur et ante urna. Ut nisl turpis, finibus sed efficitur rhoncus, tristique rutrum nibh. Ut vitae libero nec augue tempor condimentum vitae sit amet dolor. Ut blandit sed arcu a maximus. Mauris luctus commodo nunc, sed rhoncus nisl egestas in. Nam imperdiet vel ex gravida consectetur. Vivamus mauris lacus, iaculis eget justo eu, viverra fringilla velit. Integer sed leo sed mi rutrum finibus at et risus.
-Pellentesque aliquam ut purus a condimentum. Suspendisse sit amet diam eu lacus malesuada luctus. Fusce suscipit felis tellus, non placerat dui imperdiet hendrerit. Sed eu gravida felis, ac dapibus purus. Donec cursus metus magna, in interdum nulla consequat non. Sed tincidunt urna at enim rutrum ultrices. Nunc sed ex eu ex consequat consectetur. Vestibulum efficitur ultricies quam sed tincidunt.
-Vivamus ultrices diam nec risus pharetra cursus. Proin egestas est et venenatis tempor. Quisque commodo velit diam, sed pretium nisi vehicula id. Donec vel ligula non massa rhoncus ultricies eget vitae metus. Maecenas sollicitudin tellus volutpat, mattis tortor non, tincidunt quam. Nullam feugiat, purus tristique egestas finibus, nisl lacus elementum est, sed dapibus libero arcu eu lectus. Maecenas fringilla erat orci, nec tincidunt ligula posuere id. Aliquam laoreet libero sagittis diam condimentum aliquet. Nulla eleifend, diam interdum convallis pharetra, ex libero luctus risus, at dapibus mauris libero malesuada mauris. Cras consequat vitae metus sit amet fermentum. Nullam imperdiet elementum mauris non pellentesque. Maecenas ipsum est, porta et suscipit ut, sodales quis nisl. Proin lacus diam, semper id tortor at, venenatis convallis nisi. Nunc ut turpis sit amet libero vehicula ornare quis in tellus.
-Nunc aliquet risus nec nibh gravida, viverra lacinia nulla vestibulum. Vestibulum molestie dapibus odio, pretium euismod mauris euismod pellentesque. Nulla in tortor ac ex ultricies ultrices. Vivamus pellentesque congue risus, ac varius orci scelerisque ut. Maecenas blandit eu massa sit amet tincidunt. Cras sapien quam, lacinia a elit eget, elementum dignissim orci. Ut posuere, nibh id lacinia varius, elit odio iaculis mauris, eu iaculis nisi erat eu purus. Nulla ac arcu facilisis, dignissim orci et, vehicula tellus. Sed laoreet nunc eget arcu posuere malesuada. Etiam feugiat rutrum turpis accumsan rhoncus. Donec a ligula eu velit auctor bibendum in quis nulla. Cras lacinia eleifend velit, at viverra felis posuere id. Pellentesque auctor cursus mi, nec porttitor mi tempus auctor.
-Integer sit amet egestas arcu, id vestibulum risus. Praesent vitae sagittis ligula, quis lacinia magna. Etiam sem lacus, varius sit amet lacus a, maximus egestas nunc. Duis iaculis non magna nec sollicitudin. Aliquam at luctus nisi. Ut id diam scelerisque, sodales nisl sed, dapibus nulla. Phasellus eget commodo magna. Sed non commodo nulla. Vestibulum commodo risus eros. Suspendisse est purus, aliquet quis arcu quis, mattis hendrerit purus. Vivamus pretium, neque eu vestibulum vulputate, leo ligula vulputate purus, dapibus elementum dui metus eget diam.
-Nunc blandit, dolor id commodo rhoncus, diam nunc finibus nisl, et pellentesque quam velit id nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi erat, suscipit sed pulvinar id, gravida quis massa. Etiam vulputate pretium massa vitae facilisis. Quisque lobortis felis sed orci porttitor, quis facilisis eros ullamcorper. Donec finibus fringilla nunc in accumsan. Proin rutrum cursus urna. Pellentesque mi nulla, gravida sit amet pharetra vel, dapibus sed ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Nam dapibus tellus tortor, vitae malesuada massa blandit eleifend.
-Etiam blandit vitae lacus a vulputate. Phasellus faucibus faucibus enim gravida suscipit. Nulla facilisi. Etiam in orci diam. Etiam eu mattis felis. Aenean at dapibus lorem. Vivamus sollicitudin, dui mollis sodales dictum, magna metus varius sapien, nec iaculis diam tellus non odio. Proin commodo mattis dapibus. Suspendisse condimentum scelerisque ornare. Phasellus porttitor ex augue, eget eleifend neque venenatis sed. Aenean at tortor justo. Quisque consequat nulla sed ex mattis viverra. Cras ut rhoncus ipsum.
-</mutableString>
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="14" name="Baskerville"/>
-                                            <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Curabitur et elit orci. Quisque consequat ligula nulla, quis mollis nibh dictum non. Nam sagittis elementum massa sed pharetra. Integer blandit sapien ullamcorper eros tempus, vitae volutpat massa suscipit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut cursus finibus dui in bibendum. Integer est ante, vestibulum sed blandit non, tincidunt ac nulla. Aenean at libero eget elit volutpat pretium. Pellentesque rutrum est in mollis aliquet.</string>
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="14" name="Baskerville"/>
-                                            <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="charWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <gestureRecognizers/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFE-iY-5Bh">
+                                <rect key="frame" x="94" y="88" width="300" height="144.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="HGk-aM-Zin">
+                                        <rect key="frame" x="10" y="10" width="280" height="124.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yqE-b0-1NP">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.min.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uF5-0S-qIo">
+                                                        <rect key="frame" x="0.0" y="0.5" width="20" height="29"/>
+                                                    </imageView>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C5Z-s6-H77">
+                                                        <rect key="frame" x="24" y="0.0" width="222" height="31"/>
+                                                        <connections>
+                                                            <action selector="brightnessSliderValueChanged:" destination="78D-VC-Yjh" eventType="valueChanged" id="Q9E-L2-QO2"/>
+                                                            <action selector="brightnessValueChanged:" destination="8bZ-Wd-vYS" eventType="valueChanged" id="yLP-k5-D3t"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SD9-au-HQZ">
+                                                        <rect key="frame" x="250" y="-0.5" width="30" height="30.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="TeQ-0c-RzU"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-AR-w9k">
+                                                <rect key="frame" x="0.0" y="37" width="280" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppi-Y3-BHM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="22"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="A"/>
+                                                        <connections>
+                                                            <action selector="decreaseFontButtonTapped:" destination="78D-VC-Yjh" eventType="touchUpInside" id="Mc7-dT-QM3"/>
+                                                            <action selector="reduceFontButtonTapped:" destination="8bZ-Wd-vYS" eventType="touchUpInside" id="P0r-8w-S1B"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvV-D4-PvA">
+                                                        <rect key="frame" x="178.5" y="0.0" width="101.5" height="22"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="22" id="Hzt-Gb-uZW"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="A">
+                                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="increaseFontButtonTapped:" destination="8bZ-Wd-vYS" eventType="touchUpInside" id="SWC-WG-UrG"/>
+                                                            <action selector="increaseFontButtonTapped:" destination="78D-VC-Yjh" eventType="touchUpInside" id="Xhx-eN-Uhe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Ppi-Y3-BHM" firstAttribute="height" secondItem="OvV-D4-PvA" secondAttribute="height" id="vzL-OG-w45"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI2-7Q-fsL">
+                                                <rect key="frame" x="0.0" y="66" width="280" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bwm-Gc-K9E">
+                                                <rect key="frame" x="0.0" y="93.5" width="280" height="32"/>
+                                                <segments>
+                                                    <segment title="Baskerville"/>
+                                                    <segment title="Am. Typewriter"/>
+                                                    <segment title="Avenir"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="fontChosen:" destination="78D-VC-Yjh" eventType="valueChanged" id="fm8-93-a9u"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstItem="HGk-aM-Zin" firstAttribute="top" secondItem="fFE-iY-5Bh" secondAttribute="top" constant="10" id="De7-OI-Sik"/>
+                                    <constraint firstAttribute="trailing" secondItem="HGk-aM-Zin" secondAttribute="trailing" constant="10" id="Do5-dx-fxX"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="HdZ-96-zLG"/>
+                                    <constraint firstAttribute="bottom" secondItem="HGk-aM-Zin" secondAttribute="bottom" constant="10" id="R8Q-le-nYZ"/>
+                                    <constraint firstItem="HGk-aM-Zin" firstAttribute="leading" secondItem="fFE-iY-5Bh" secondAttribute="leading" constant="10" id="tFm-OA-lc7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4BW-bN-iRY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="trailing" secondItem="4BW-bN-iRY" secondAttribute="trailing" id="GWE-DE-EeE"/>
+                            <constraint firstItem="fFE-iY-5Bh" firstAttribute="top" secondItem="4BW-bN-iRY" secondAttribute="top" id="OBk-8w-XAz"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="leading" secondItem="4BW-bN-iRY" secondAttribute="leading" id="Q0U-MI-5Fw"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="top" secondItem="cGY-Wz-087" secondAttribute="bottom" constant="10" id="TWL-c2-0Wc"/>
                             <constraint firstItem="cGY-Wz-087" firstAttribute="centerX" secondItem="2Fz-hw-6VX" secondAttribute="centerX" id="X1X-ra-cpi"/>
                             <constraint firstItem="4BW-bN-iRY" firstAttribute="bottom" secondItem="Cdg-5w-B1b" secondAttribute="bottom" id="a1m-Dg-ZHQ"/>
                             <constraint firstItem="cGY-Wz-087" firstAttribute="top" secondItem="4BW-bN-iRY" secondAttribute="top" id="kwh-ap-FB9"/>
+                            <constraint firstItem="4BW-bN-iRY" firstAttribute="trailing" secondItem="fFE-iY-5Bh" secondAttribute="trailing" constant="20" id="omx-4A-IOp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="w0N-hu-NXA">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="textformat.size" catalog="system" id="bcU-qe-30o"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="textformat.size" catalog="system" id="bcU-qe-30o">
+                            <connections>
+                                <action selector="formatButtonTapped:" destination="78D-VC-Yjh" id="uaO-Ao-qCi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="brightnessSlider" destination="C5Z-s6-H77" id="AYB-dB-Ssm"/>
                         <outlet property="chapterTitle" destination="cGY-Wz-087" id="EH1-bP-r5I"/>
+                        <outlet property="fontSegmentedControl" destination="bwm-Gc-K9E" id="Dr7-hG-6GH"/>
                         <outlet property="formatButton" destination="bcU-qe-30o" id="0nt-v9-Va9"/>
+                        <outlet property="formatOptionsView" destination="fFE-iY-5Bh" id="j1B-ID-yF8"/>
                         <outlet property="textView" destination="Cdg-5w-B1b" id="cPZ-8w-XBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nm-uF-aLV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8bZ-Wd-vYS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1653.6231884057972" y="58.928571428571423"/>
         </scene>
     </scenes>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
+        <image name="sun.max.fill" catalog="system" width="128" height="124"/>
+        <image name="sun.min.fill" catalog="system" width="128" height="121"/>
         <image name="textformat.size" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
