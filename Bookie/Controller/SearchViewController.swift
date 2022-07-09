@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UITableViewController{
+class SearchViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cantFindLabel: UILabel!
@@ -75,12 +75,16 @@ class SearchViewController: UITableViewController{
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         cantFindLabel.isHidden = true
-        
+        view.endEditing(true)
         if let searchString = searchBar.text,
            searchString.count > 0 {
             
             searchResults = []
             tableView.reloadData()
+            
+            let spinner = UIActivityIndicatorView(style: .large)
+            spinner.startAnimating()
+            tableView.backgroundView = spinner
             
             Task {
                 do {
@@ -94,6 +98,8 @@ extension SearchViewController: UISearchBarDelegate {
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        spinner.stopAnimating()
+                        self.tableView.backgroundView = nil
                     }
                     
                 } catch {

@@ -13,7 +13,6 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     var note: Note?
     var chapter: Chapter?
     
-    @IBOutlet weak var chapterTitle: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var formatButton: UIBarButtonItem!
     
@@ -26,8 +25,11 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     var tapGestureRecognizer: UITapGestureRecognizer!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         textView.delegate = self
         textView.keyboardDismissMode = .interactive
@@ -35,13 +37,16 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         textView.font = AppearanceManager.shared.font
         textView.textAlignment = .justified
         
-        chapterTitle.font = textView.font
-        chapterTitle.text = chapter?.title
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
+        navigationItem.title = chapter?.title
+        
         loadNote()
         
         makeSelfKeyboardObserver() //minor adjuastment to the text view when keyboard shows and hides (on top of IQKeyboard Manager)
-       
+        
         setupFormatOptionsView()
+        
+        makeSelfBrightnessObserver()
         
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action:  #selector(hideFormatOptions))
         tapGestureRecognizer.delegate = self
@@ -49,9 +54,10 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-      SoundEffect.shared.playSoundEffect(.bookClose)
+        SoundEffect.shared.playSoundEffect(.bookClose)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)]
     }
-
+    
     @IBAction func formatButtonTapped(_ sender: UIBarButtonItem) {
         formatOptionsView.isHidden.toggle()
     }
@@ -60,7 +66,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         saveNote()
     }
- 
+    
     // MARK: Note-Data Manipulation
     // Made it a func incase I want to change when I save the note
     func saveNote() {
@@ -85,7 +91,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    // MARK: Keyboard Adjustment Methods
+    // MARK: NotificationCenter observer methods
     
     fileprivate func makeSelfKeyboardObserver() {
         NotificationCenter.default.addObserver(
@@ -104,26 +110,39 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     
     @objc func keyboardWillShow(_ notification: Notification) {
         //if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            //let keyboardRectangle = keyboardFrame.cgRectValue
-            //let keyboardHeight = keyboardRectangle.height
-            //textView.frame.origin.y -= 30 // a bit sketchy but good for now
-            formatOptionsView.isHidden = true
-       // }
+        //let keyboardRectangle = keyboardFrame.cgRectValue
+        //let keyboardHeight = keyboardRectangle.height
+        //textView.frame.origin.y -= 30 // a bit sketchy but good for now
+        formatOptionsView.isHidden = true
+        // }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
         //if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            //let keyboardRectangle = keyboardFrame.cgRectValue
-            //let keyboardHeight = keyboardRectangle.height
-            //textView.frame.origin.y += 30 // a bit sketchy but good for now
+        //let keyboardRectangle = keyboardFrame.cgRectValue
+        //let keyboardHeight = keyboardRectangle.height
+        //textView.frame.origin.y += 30 // a bit sketchy but good for now
         //}
     }
+    
+    fileprivate func makeSelfBrightnessObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(brightnessDidChange),
+            name: UIScreen.brightnessDidChangeNotification,
+            object: nil
+        )
+    }
+    
+    @objc func brightnessDidChange(){
+        brightnessSlider.value = Float(UIScreen.main.brightness)
+    }
+    
     
     // MARK: FormatOptionsMethods
     private func setupFormatOptionsView(){
         formatOptionsView.isHidden = true
         formatOptionsView.layer.cornerRadius = 10
-        brightnessSlider.value = Float(UIScreen.main.brightness)
         fontSegmentedControl.selectedSegmentIndex = AppearanceManager.shared.indexOfSelecedFont
     }
     
@@ -133,15 +152,17 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         UIScreen.main.brightness = CGFloat(sender.value)
     }
     @IBAction func decreaseFontButtonTapped(_ sender: UIButton) {
+        
         AppearanceManager.shared.decreaseFont()
         textView.font = AppearanceManager.shared.font
-        chapterTitle.font = textView.font
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
     }
     
     @IBAction func increaseFontButtonTapped(_ sender: UIButton) {
+        
         AppearanceManager.shared.increaseFont()
         textView.font = AppearanceManager.shared.font
-        chapterTitle.font = textView.font
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
     }
     
     @IBAction func fontChosen(_ sender: UISegmentedControl) {
@@ -160,7 +181,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         
         AppearanceManager.shared.changeFont(font: fontName)
         textView.font = AppearanceManager.shared.font
-        chapterTitle.font = AppearanceManager.shared.font
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
     }
 }
 

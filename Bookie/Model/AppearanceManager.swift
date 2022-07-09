@@ -11,6 +11,7 @@ import UIKit
 class AppearanceManager {
     
     enum Fonts: String, CaseIterable {
+        // if you change the name of a font, USERdefault will crash(so change in user defaults as well)
         case defaultFont = "Baskerville"
         case typeWriter = "American Typewriter"
         case avenir = "Avenir Book"
@@ -30,7 +31,8 @@ class AppearanceManager {
         }
     }
     var indexOfSelecedFont: Int = 0
-    
+    let maxFont: CGFloat = 28
+    let minFont: CGFloat = 12
     
     init(){
         if let fontSize = UserDefaults.standard.object(forKey: "fontSize") as? Float,
@@ -61,11 +63,15 @@ class AppearanceManager {
     }
    
     func increaseFont(){
-        fontSize += 2
-        font = UIFont(name: fontName, size: fontSize)
+        if fontSize < maxFont {
+            fontSize += 2
+            font = UIFont(name: fontName, size: fontSize)
+        }
     }
     func decreaseFont(){
-        fontSize -= 2
-        font = UIFont(name: fontName, size: fontSize)
+        if fontSize > minFont {
+            fontSize -= 2
+            font = UIFont(name: fontName, size: fontSize)
+        }
     }
 }

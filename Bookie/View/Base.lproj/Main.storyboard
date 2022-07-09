@@ -238,14 +238,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chapter 1: Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGY-Wz-087">
-                                <rect key="frame" x="136" y="88" width="142.5" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" allowsEditingTextAttributes="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-5w-B1b">
-                                <rect key="frame" x="0.0" y="122" width="414" height="740"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <attributedString key="attributedText"/>
@@ -343,13 +337,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Cdg-5w-B1b" firstAttribute="top" secondItem="4BW-bN-iRY" secondAttribute="top" id="Cnl-0O-wNI"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="trailing" secondItem="4BW-bN-iRY" secondAttribute="trailing" id="GWE-DE-EeE"/>
                             <constraint firstItem="fFE-iY-5Bh" firstAttribute="top" secondItem="4BW-bN-iRY" secondAttribute="top" id="OBk-8w-XAz"/>
                             <constraint firstItem="Cdg-5w-B1b" firstAttribute="leading" secondItem="4BW-bN-iRY" secondAttribute="leading" id="Q0U-MI-5Fw"/>
-                            <constraint firstItem="Cdg-5w-B1b" firstAttribute="top" secondItem="cGY-Wz-087" secondAttribute="bottom" constant="10" id="TWL-c2-0Wc"/>
-                            <constraint firstItem="cGY-Wz-087" firstAttribute="centerX" secondItem="2Fz-hw-6VX" secondAttribute="centerX" id="X1X-ra-cpi"/>
                             <constraint firstItem="4BW-bN-iRY" firstAttribute="bottom" secondItem="Cdg-5w-B1b" secondAttribute="bottom" id="a1m-Dg-ZHQ"/>
-                            <constraint firstItem="cGY-Wz-087" firstAttribute="top" secondItem="4BW-bN-iRY" secondAttribute="top" id="kwh-ap-FB9"/>
                             <constraint firstItem="4BW-bN-iRY" firstAttribute="trailing" secondItem="fFE-iY-5Bh" secondAttribute="trailing" constant="20" id="omx-4A-IOp"/>
                         </constraints>
                     </view>
@@ -362,7 +354,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="brightnessSlider" destination="C5Z-s6-H77" id="AYB-dB-Ssm"/>
-                        <outlet property="chapterTitle" destination="cGY-Wz-087" id="EH1-bP-r5I"/>
                         <outlet property="fontSegmentedControl" destination="bwm-Gc-K9E" id="Dr7-hG-6GH"/>
                         <outlet property="formatButton" destination="bcU-qe-30o" id="0nt-v9-Va9"/>
                         <outlet property="formatOptionsView" destination="fFE-iY-5Bh" id="j1B-ID-yF8"/>
