@@ -13,8 +13,8 @@
         <relationship name="parentBook" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="childChapter" inverseEntity="Book"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="attributedText" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="NSMutableAttributedString"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
-        <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="parentChapter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chapter" inverseName="childNote" inverseEntity="Chapter"/>
     </entity>
     <elements>

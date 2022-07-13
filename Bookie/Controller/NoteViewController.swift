@@ -24,9 +24,6 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     //for hiding the format options
     var tapGestureRecognizer: UITapGestureRecognizer!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,17 +65,16 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     }
     
     // MARK: Note-Data Manipulation
-    // Made it a func incase I want to change when I save the note
+    
     func saveNote() {
         if let note = note {
-            note.setValue(textView.text, forKey: "text")
+            note.setValue(NSMutableAttributedString(attributedString: textView.attributedText), forKey: "attributedText")
         } else {
             note = Note(context: coreDataManager.container.viewContext)
             note?.parentChapter = chapter
-            note?.text = textView.text
+            note?.attributedText = NSMutableAttributedString(attributedString: textView.attributedText)
         }
         note?.parentChapter?.lastModified = Date.now //might need a singleton
-        
         coreDataManager.saveItems()
     }
     
@@ -87,7 +83,12 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         request.predicate = NSPredicate(format: "parentChapter.title MATCHES %@ && parentChapter.parentBook.title MATCHES %@",argumentArray: [chapter!.title!, chapter!.parentBook!.title!] )
         if let savedNote = coreDataManager.loadItems(with: request) {
             note = savedNote.first
-            textView.text = note?.text
+            
+            if let attributedString = note?.attributedText {
+                let mutableString = NSMutableAttributedString(attributedString:attributedString)
+                mutableString.replaceFont(with: AppearanceManager.shared.font)
+                textView.attributedText = mutableString
+            }
         }
     }
     
@@ -152,17 +153,13 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         UIScreen.main.brightness = CGFloat(sender.value)
     }
     @IBAction func decreaseFontButtonTapped(_ sender: UIButton) {
-        
         AppearanceManager.shared.decreaseFont()
-        textView.font = AppearanceManager.shared.font
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
+        updateFonts()
     }
     
     @IBAction func increaseFontButtonTapped(_ sender: UIButton) {
-        
         AppearanceManager.shared.increaseFont()
-        textView.font = AppearanceManager.shared.font
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
+        updateFonts()
     }
     
     @IBAction func fontChosen(_ sender: UISegmentedControl) {
@@ -180,8 +177,18 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         }
         
         AppearanceManager.shared.changeFont(font: fontName)
-        textView.font = AppearanceManager.shared.font
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
+        updateFonts()
+    }
+    
+    func updateFonts() {
+        let font  = AppearanceManager.shared.font
+        
+        let mutableString = NSMutableAttributedString(attributedString: textView.attributedText)
+        mutableString.replaceFont(with: font!)
+        
+        textView.attributedText = mutableString
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font!]
     }
 }
 
@@ -194,3 +201,7 @@ extension NoteViewController: UIGestureRecognizerDelegate {
         formatOptionsView.isHidden = true
     }
 }
+
+
+
+
