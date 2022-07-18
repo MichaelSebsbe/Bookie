@@ -39,7 +39,6 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         
         loadNote()
         
-        makeSelfKeyboardObserver() //minor adjuastment to the text view when keyboard shows and hides (on top of IQKeyboard Manager)
         
         setupFormatOptionsView()
         
@@ -93,38 +92,6 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     }
     
     // MARK: NotificationCenter observer methods
-    
-    fileprivate func makeSelfKeyboardObserver() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        //if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-        //let keyboardRectangle = keyboardFrame.cgRectValue
-        //let keyboardHeight = keyboardRectangle.height
-        //textView.frame.origin.y -= 30 // a bit sketchy but good for now
-        formatOptionsView.isHidden = true
-        // }
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification) {
-        //if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-        //let keyboardRectangle = keyboardFrame.cgRectValue
-        //let keyboardHeight = keyboardRectangle.height
-        //textView.frame.origin.y += 30 // a bit sketchy but good for now
-        //}
-    }
     
     fileprivate func makeSelfBrightnessObserver() {
         NotificationCenter.default.addObserver(

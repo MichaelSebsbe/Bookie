@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD380457287733CA00054ABC /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD380456287733CA00054ABC /* IQKeyboardManagerSwift */; };
 		AD38045D287767DF00054ABC /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38045C287767DF00054ABC /* AppearanceManager.swift */; };
 		AD3AB868287495190082C8D6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB867287495190082C8D6 /* BookCell.swift */; };
 		AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB869287496110082C8D6 /* SearchViewController.swift */; };
@@ -68,7 +67,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD6846102876049000F9607D /* MapKit.framework in Frameworks */,
-				AD380457287733CA00054ABC /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +170,6 @@
 			);
 			name = Bookie;
 			packageProductDependencies = (
-				AD380456287733CA00054ABC /* IQKeyboardManagerSwift */,
 			);
 			productName = Bookie;
 			productReference = AD61C50228732CC200978F46 /* Bookie.app */;
@@ -203,7 +200,6 @@
 			);
 			mainGroup = AD61C4F928732CC200978F46;
 			packageReferences = (
-				AD380455287733CA00054ABC /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = AD61C50328732CC200978F46 /* Products */;
 			projectDirPath = "";
@@ -476,25 +472,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AD380455287733CA00054ABC /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AD380456287733CA00054ABC /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AD380455287733CA00054ABC /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AD61C50E28732CC200978F46 /* Bookie.xcdatamodeld */ = {

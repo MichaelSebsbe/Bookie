@@ -8,12 +8,9 @@
 import UIKit
 import CoreData
 import AVFoundation
-import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
@@ -30,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              print("Setting category to AVAudioSessionCategoryPlayback failed.")
          }
         
-        IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.enableAutoToolbar = false
+     
         return true
     }
 
