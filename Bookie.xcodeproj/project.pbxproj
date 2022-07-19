@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD38045D287767DF00054ABC /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38045C287767DF00054ABC /* AppearanceManager.swift */; };
 		AD3AB868287495190082C8D6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB867287495190082C8D6 /* BookCell.swift */; };
 		AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB869287496110082C8D6 /* SearchViewController.swift */; };
 		AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86B2874971E0082C8D6 /* BookSearch.swift */; };
 		AD3AB86E28749A1C0082C8D6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */; };
 		AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */; };
 		AD3AB872287500040082C8D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB871287500040082C8D6 /* Constants.swift */; };
-		AD529F892885FCC600EB3C63 /* NotesTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD529F872885FCC100EB3C63 /* NotesTextView.framework */; platformFilter = ios; };
-		AD529F8A2885FCC600EB3C63 /* NotesTextView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD529F872885FCC100EB3C63 /* NotesTextView.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AD529F8D2887044E00EB3C63 /* NotesTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD529F8B2887042B00EB3C63 /* NotesTextView.framework */; platformFilter = ios; };
+		AD529F8E2887044E00EB3C63 /* NotesTextView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD529F8B2887042B00EB3C63 /* NotesTextView.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50528732CC200978F46 /* AppDelegate.swift */; };
 		AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50728732CC200978F46 /* SceneDelegate.swift */; };
 		AD61C50D28732CC200978F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C50B28732CC200978F46 /* Main.storyboard */; };
@@ -41,7 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AD529F8A2885FCC600EB3C63 /* NotesTextView.framework in Embed Frameworks */,
+				AD529F8E2887044E00EB3C63 /* NotesTextView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,7 +48,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AD38045C287767DF00054ABC /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		AD38045E2878B5CA00054ABC /* Bookie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bookie.entitlements; sourceTree = "<group>"; };
 		AD3AB867287495190082C8D6 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		AD3AB869287496110082C8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +55,7 @@
 		AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		AD3AB871287500040082C8D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		AD529F872885FCC100EB3C63 /* NotesTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NotesTextView.framework; sourceTree = "<group>"; };
+		AD529F8B2887042B00EB3C63 /* NotesTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NotesTextView.framework; sourceTree = "<group>"; };
 		AD61C50228732CC200978F46 /* Bookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD61C50528732CC200978F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD61C50728732CC200978F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD529F892885FCC600EB3C63 /* NotesTextView.framework in Frameworks */,
+				AD529F8D2887044E00EB3C63 /* NotesTextView.framework in Frameworks */,
 				AD6846102876049000F9607D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				AD68460F2876049000F9607D /* MapKit.framework */,
-				AD529F872885FCC100EB3C63 /* NotesTextView.framework */,
+				AD529F8B2887042B00EB3C63 /* NotesTextView.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,7 +164,6 @@
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
 				AD3AB871287500040082C8D6 /* Constants.swift */,
 				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
-				AD38045C287767DF00054ABC /* AppearanceManager.swift */,
 				ADECEF48287DE39600AC692E /* Extensions.swift */,
 			);
 			path = Model;
@@ -255,7 +252,6 @@
 				AD3AB868287495190082C8D6 /* BookCell.swift in Sources */,
 				ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */,
 				AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */,
-				AD38045D287767DF00054ABC /* AppearanceManager.swift in Sources */,
 				AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */,
 				AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */,
 				AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */,

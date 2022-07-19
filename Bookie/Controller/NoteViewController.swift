@@ -49,7 +49,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         textView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        textView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
