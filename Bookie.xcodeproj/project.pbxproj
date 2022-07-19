@@ -56,6 +56,7 @@
 		AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		AD3AB871287500040082C8D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD529F8B2887042B00EB3C63 /* NotesTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NotesTextView.framework; sourceTree = "<group>"; };
+		AD529F8F28870E3900EB3C63 /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		AD61C50228732CC200978F46 /* Bookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD61C50528732CC200978F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD61C50728732CC200978F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		AD61C4F928732CC200978F46 = {
 			isa = PBXGroup;
 			children = (
+				AD529F8F28870E3900EB3C63 /* ReadMe.md */,
 				ADABA2D42876229F00449CDA /* bookClose.mp3 */,
 				ADABA2D32876229F00449CDA /* deletion.mp3 */,
 				ADABA2CF2876209800449CDA /* pageFlip.mp3 */,
