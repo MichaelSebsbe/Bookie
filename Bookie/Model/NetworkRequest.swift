@@ -51,7 +51,7 @@ struct NetworkRequest {
     
     static func fetchImage(for iSBN: String) async throws -> UIImage? {
         var image: UIImage?
-        let url = createImageURL(iSBN: iSBN)
+        guard let url = createImageURL(iSBN: iSBN) else {return UIImage(systemName: "book")}
 
         let (data, reponse) = try await URLSession.shared.data(from: url)
             
@@ -67,8 +67,8 @@ struct NetworkRequest {
     
     
     //HELPER Fucntions
-    static private func createImageURL(iSBN: String) -> URL {
-        return URL(string: "https://covers.openlibrary.org/b/isbn/\(iSBN)-S.jpg")!
+    static private func createImageURL(iSBN: String) -> URL? {
+        return URL(string: "https://covers.openlibrary.org/b/isbn/\(iSBN)-S.jpg")
     }
     
     static private func createISBNSearchURL(from searchString: String) -> URL {

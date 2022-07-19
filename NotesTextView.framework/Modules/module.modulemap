@@ -1,0 +1,11 @@
+framework module NotesTextView {
+  umbrella header "NotesTextView.h"
+
+  export *
+  module * { export * }
+}
+
+module NotesTextView.Swift {
+    header "NotesTextView-Swift.h"
+    requires objc
+}

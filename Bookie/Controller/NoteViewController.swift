@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NotesTextView
 
 class NoteViewController: UIViewController, UITextViewDelegate {
     
@@ -13,54 +14,54 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     var note: Note?
     var chapter: Chapter?
     
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var formatButton: UIBarButtonItem!
+    let textView = NotesTextView()
     
-    //format options outlets
-    @IBOutlet weak var formatOptionsView: UIView!
-    @IBOutlet weak var brightnessSlider: UISlider!
-    @IBOutlet weak var fontSegmentedControl: UISegmentedControl!
-    
-    //for hiding the format options
-    var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        textView.delegate = self
-        textView.keyboardDismissMode = .interactive
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 35)
-        textView.font = AppearanceManager.shared.font
-        textView.textAlignment = .justified
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: textView.font!]
         navigationItem.title = chapter?.title
-        
+        setupNotesTextView()
         loadNote()
-        
-        
-        setupFormatOptionsView()
-        
-        makeSelfBrightnessObserver()
-        
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action:  #selector(hideFormatOptions))
-        tapGestureRecognizer.delegate = self
-        textView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         SoundEffect.shared.playSoundEffect(.bookClose)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)]
+        saveNote()
     }
     
-    @IBAction func formatButtonTapped(_ sender: UIBarButtonItem) {
-        formatOptionsView.isHidden.toggle()
+    @IBAction func shareBarButtonTapped(_ sender: UIBarButtonItem) {
+        
     }
     // MARK: TextView Delegate Methods
     
     func textViewDidChange(_ textView: UITextView) {
         saveNote()
+    }
+
+    
+    // MARK: NotesTextView Setup
+    func setupNotesTextView() {
+        view.addSubview(textView)
+        
+        textView.delegate = self
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        
+        // to adjust the content insets based on keyboard height
+        textView.shouldAdjustInsetBasedOnKeyboardHeight = true
+        
+        // to support iPad
+        textView.hostingViewController = self
+        
+        let _ = textView.becomeFirstResponder()
     }
     
     // MARK: Note-Data Manipulation
@@ -84,90 +85,12 @@ class NoteViewController: UIViewController, UITextViewDelegate {
             note = savedNote.first
             
             if let attributedString = note?.attributedText {
-                let mutableString = NSMutableAttributedString(attributedString:attributedString)
-                mutableString.replaceFont(with: AppearanceManager.shared.font)
-                textView.attributedText = mutableString
+                textView.attributedText = attributedString
             }
         }
     }
-    
-    // MARK: NotificationCenter observer methods
-    
-    fileprivate func makeSelfBrightnessObserver() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(brightnessDidChange),
-            name: UIScreen.brightnessDidChangeNotification,
-            object: nil
-        )
-    }
-    
-    @objc func brightnessDidChange(){
-        brightnessSlider.value = Float(UIScreen.main.brightness)
-    }
-    
-    
-    // MARK: FormatOptionsMethods
-    private func setupFormatOptionsView(){
-        formatOptionsView.isHidden = true
-        formatOptionsView.layer.cornerRadius = 10
-        fontSegmentedControl.selectedSegmentIndex = AppearanceManager.shared.indexOfSelecedFont
-    }
-    
-    // MARK: FormatOptions IBActions
-    
-    @IBAction func brightnessSliderValueChanged(_ sender: UISlider) {
-        UIScreen.main.brightness = CGFloat(sender.value)
-    }
-    @IBAction func decreaseFontButtonTapped(_ sender: UIButton) {
-        AppearanceManager.shared.decreaseFont()
-        updateFonts()
-    }
-    
-    @IBAction func increaseFontButtonTapped(_ sender: UIButton) {
-        AppearanceManager.shared.increaseFont()
-        updateFonts()
-    }
-    
-    @IBAction func fontChosen(_ sender: UISegmentedControl) {
-        var fontName: AppearanceManager.Fonts!
-        
-        switch sender.selectedSegmentIndex {
-        case 0:
-            fontName = .defaultFont
-        case 1:
-            fontName = .typeWriter
-        case 2:
-            fontName = .avenir
-        default:
-            print("Segement 3 needs implementation")
-        }
-        
-        AppearanceManager.shared.changeFont(font: fontName)
-        updateFonts()
-    }
-    
-    func updateFonts() {
-        let font  = AppearanceManager.shared.font
-        
-        let mutableString = NSMutableAttributedString(attributedString: textView.attributedText)
-        mutableString.replaceFont(with: font!)
-        
-        textView.attributedText = mutableString
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font!]
-    }
 }
-
-extension NoteViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
     
-    @objc func hideFormatOptions(){
-        formatOptionsView.isHidden = true
-    }
-}
 
 
 
