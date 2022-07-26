@@ -52,7 +52,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         textView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        textView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         
         // to adjust the content insets based on keyboard height
@@ -61,7 +61,6 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         // to support iPad
         textView.hostingViewController = self
         
-        let _ = textView.becomeFirstResponder()
     }
     
     // MARK: Note-Data Manipulation

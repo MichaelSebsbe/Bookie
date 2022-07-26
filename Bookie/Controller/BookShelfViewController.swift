@@ -20,6 +20,7 @@ class BookShelfViewController: UITableViewController {
             self.books = savedBooks
         }
         title = "BookShelf"
+        tableView.rowHeight = 75
     }
     
     // MARK: - Tableview data source
@@ -38,6 +39,7 @@ class BookShelfViewController: UITableViewController {
         
         cell.titleLabel.text = books[indexPath.row].title
         cell.authorLabel.text = books[indexPath.row].author
+        cell.authorLabel.textColor = .gray
         if let imageData = books[indexPath.row].imageData,
            let uIImage = UIImage(data: imageData) {
             cell.bookImageView.image = uIImage

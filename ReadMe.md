@@ -3,6 +3,7 @@ A book summary App, use to write your summaries in an organized way so you dont 
 
 # Implemntation
     - Core Data for saving notes
+    - AVFoundation for sound effects
     - https://openlibrary.org for fetching Titles 
     - 3rd party Framework for Text formatting (NotesTextView), https://github.com/Rimesh/NotesTextView
 ##Current issues 

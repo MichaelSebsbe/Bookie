@@ -18,6 +18,7 @@ class SearchViewController: UITableViewController {
         super.viewDidLoad()
         
         searchBar.delegate = self
+        let _ = searchBar.becomeFirstResponder()
         cantFindLabel.isHidden = true
         searchBar.placeholder = "Search by book title"
     }
@@ -113,5 +114,9 @@ extension SearchViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             searchBar.placeholder = "Search Book by Title"
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true)
     }
 }
