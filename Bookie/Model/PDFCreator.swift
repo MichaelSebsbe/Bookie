@@ -89,8 +89,20 @@ class PDFCreator {
     }
     
     private func drawBook(_ context: UIGraphicsPDFRendererContext){
+        let coverFont =  UIFont.systemFont(ofSize: 50.0, weight: .heavy)
+        let coverTitle = NSMutableAttributedString(string: (book?.title)! + " summary.", attributes: [NSAttributedString.Key.font : coverFont])
+        
+        let tagParagraphStyle = NSMutableParagraphStyle()
+        tagParagraphStyle.alignment = .center
+        
+        let tagFont =  UIFont.systemFont(ofSize: 20.0, weight: .regular)
+        let tagtext = NSMutableAttributedString(string: "\n\nCreated using Bookie App.\n(Available in the App Store)", attributes: [NSAttributedString.Key.font : tagFont, NSAttributedString.Key.paragraphStyle : tagParagraphStyle])
+      
+        tagtext.insert(coverTitle, at: 0)
+        
+        self.addText(tagtext, context: context, includePageNumber: false)
+        
         for chapter in chapters! {
-            
             let request = Note.fetchRequest()
             request.predicate = NSPredicate(format: "parentChapter.title MATCHES %@ && parentChapter.parentBook.title MATCHES %@",argumentArray: [chapter.title!, chapter.parentBook!.title!] )
             
@@ -109,8 +121,9 @@ class PDFCreator {
         }
     }
     
+    
     @discardableResult
-    private func addText(_ text : NSAttributedString, context : UIGraphicsPDFRendererContext) -> CGFloat {
+    private func addText(_ text : NSAttributedString, context : UIGraphicsPDFRendererContext, includePageNumber: Bool = true) -> CGFloat {
 
         let framesetter = CTFramesetterCreateWithAttributedString(text)
         
@@ -124,8 +137,10 @@ class PDFCreator {
             
             //2
             /*Draw a page number at the bottom of each page.*/
-            startPage += 1
-            drawPageNumber(startPage)
+            if includePageNumber{
+                startPage += 1
+                drawPageNumber(startPage)
+            }
             
             
             //3

@@ -1,5 +1,5 @@
 #  BOOKIE
-A book summary App, use to write your summaries in an organized way so you dont forget the contents of a book you read.
+A book summary App, use to write your summaries in an organized way so you dont forget the contents of a book you read and export it the summary as a pdf File.
 
 # Implemntation
     - Core Data for saving notes
@@ -13,8 +13,6 @@ A book summary App, use to write your summaries in an organized way so you dont 
     - f9c64e56e1538dbb2debaa9ab215dc4f56c7ae4d Simulator
     - Going forward I will keep building on the simulator branch, therfore to test on actual device, i just need to replace the frameworkFile from Ios branch
 ##Features to build on (will add more)
-    -  share button on NoteVC needs implemenation
-        - sharing the whole book summary as pdf, epub or docx file (include "Created using Bookie somewhere")
 
     - Maybe add reading mode and editing mode  
         - this is not really necessary, but since I already have code for book like formating(on custom menu branch)

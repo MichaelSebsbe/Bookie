@@ -163,13 +163,13 @@
 			isa = PBXGroup;
 			children = (
 				ADD449A728734304006930F0 /* CoreDataManager.swift */,
+				AD9664BF2891971E00095319 /* PDFCreator.swift */,
 				AD3AB86B2874971E0082C8D6 /* BookSearch.swift */,
 				AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */,
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
 				AD3AB871287500040082C8D6 /* Constants.swift */,
 				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
 				ADECEF48287DE39600AC692E /* Extensions.swift */,
-				AD9664BF2891971E00095319 /* PDFCreator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
