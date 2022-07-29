@@ -8,7 +8,7 @@
 import UIKit
 
 /*
-    used by: NoteViewController
+    used by: None at the moment, but can use to change font when exporting
     Source:  https://stackoverflow.com/questions/43723345/nsattributedstring-change-the-font-overall-but-keep-all-other-attributes
  */
 extension NSMutableAttributedString {

@@ -7,20 +7,25 @@
 
 import UIKit
 
-
 class BookShelfViewController: UITableViewController {
     
     var books = [Book]()
-    let coreDataManager = CoreDataManager()
-
+    var bookToExport: Book?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedBooks = coreDataManager.loadItems(with: Book.fetchRequest()){
+        if let savedBooks = CoreDataManager.shared.loadItems(with: Book.fetchRequest()){
             self.books = savedBooks
         }
         title = "BookShelf"
         tableView.rowHeight = 75
+        // let uiMenuInteractor = UIContextMenuConfiguration
+    }
+    
+    private func addInteraction(toCell cell: UITableViewCell) {
+        let interaction = UIContextMenuInteraction(delegate: self)
+        cell.addInteraction(interaction)
     }
     
     // MARK: - Tableview data source
@@ -45,6 +50,8 @@ class BookShelfViewController: UITableViewController {
             cell.bookImageView.image = uIImage
         }
         
+        addInteraction(toCell: cell)
+        
         return cell
     }
     
@@ -61,13 +68,13 @@ class BookShelfViewController: UITableViewController {
                 let bookToDelete = self.books[indexPath.row]
                 //let deleteRequest = books[indexPath.row]
                 
-                self.coreDataManager.container.viewContext.delete(bookToDelete)
+                CoreDataManager.shared.container.viewContext.delete(bookToDelete)
                 self.books.remove(at: indexPath.row)
                 
                 DispatchQueue.main.async {
                     tableView.deleteRows(at: [indexPath], with: .fade)
                     SoundEffect.shared.playSoundEffect(.deletion)
-                    self.coreDataManager.saveItems()
+                    CoreDataManager.shared.saveItems()
                 }
                 
             }
@@ -96,7 +103,7 @@ class BookShelfViewController: UITableViewController {
     }
     
     func addBook(_ bookSearch: BookSearch){
-        let book = Book(context: coreDataManager.container.viewContext)
+        let book = Book(context: CoreDataManager.shared.container.viewContext)
         book.title = bookSearch.title
         book.author = bookSearch.author
         book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
@@ -105,8 +112,58 @@ class BookShelfViewController: UITableViewController {
         
         tableView.reloadData()
         
-        coreDataManager.saveItems()
+        CoreDataManager.shared.saveItems()
+    }
+}
+
+extension BookShelfViewController: UIContextMenuInteractionDelegate {
+    
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        // i have to use this becuase the passed location arg uses the view and no the tableview
+        let location = interaction.location(in: self.tableView)
+        
+        if let indexPath = tableView.indexPathForRow(at: location){
+    
+            bookToExport = books[indexPath.row]
+            
+            let exportAction = UICommand(title: "Export as PDF", action: #selector(exportAsPDF))
+            let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+                let children: [UIMenuElement] = [exportAction]
+                return UIMenu(title: "", children: children)
+            }
+            
+            return configuration
+        } else {
+            return nil
+        }
     }
     
-
+    @objc func exportAsPDF(){
+        // export
+        print("Exporting \(bookToExport?.title)")
+        
+        guard (bookToExport?.childChapter!.count)! > 0 else {
+            let alertController = UIAlertController(title: "Book has no Chapters", message: "Add chapters within the book to Export as PDF", preferredStyle: .alert)
+            
+            let cancleAction = UIAlertAction(title: "OK", style: .cancel)
+            
+            alertController.addAction(cancleAction)
+            
+            present(alertController, animated: true)
+            
+            return
+        }
+        
+        
+        let pdfCreator = PDFCreator(book: bookToExport!)
+        let pdfData = pdfCreator.prepareData()
+        
+        let activityVC = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+          
+        present(activityVC, animated: true)
+        
+        // set book to export to nil
+        bookToExport = nil
+    }
 }
+

@@ -9,7 +9,6 @@ import UIKit
 
 class ChaptersViewController: UITableViewController {
     
-    let coreDataManager = CoreDataManager()
     var book: Book?
     var chapters = [Chapter]()
     
@@ -20,7 +19,7 @@ class ChaptersViewController: UITableViewController {
         // query load to only show books chapters
         let request = Chapter.fetchRequest()
         request.predicate = NSPredicate(format: "parentBook.title MATCHES %@", book!.title!)
-        if let savedChapters = coreDataManager.loadItems(with: request){
+        if let savedChapters = CoreDataManager.shared.loadItems(with: request){
             chapters = savedChapters
         }
     }
@@ -52,7 +51,7 @@ class ChaptersViewController: UITableViewController {
                 }
                 
                 
-                let chapter = Chapter(context: self.coreDataManager.container.viewContext)
+                let chapter = Chapter(context: CoreDataManager.shared.container.viewContext)
                 chapter.parentBook = self.book
                 chapter.title = title
                 chapter.lastModified = Date.now
@@ -63,7 +62,7 @@ class ChaptersViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
                 
-                self.coreDataManager.saveItems()
+                CoreDataManager.shared.saveItems()
             }
         }
         
@@ -111,13 +110,13 @@ class ChaptersViewController: UITableViewController {
                 let chapterToDelete = self.chapters[indexPath.row]
                 //let deleteRequest = books[indexPath.row]
                 
-                self.coreDataManager.container.viewContext.delete(chapterToDelete)
+                CoreDataManager.shared.container.viewContext.delete(chapterToDelete)
                 self.chapters.remove(at: indexPath.row)
                 
                 DispatchQueue.main.async {
                     tableView.deleteRows(at: [indexPath], with: .fade)
                     SoundEffect.shared.playSoundEffect(.deletion)
-                    self.coreDataManager.saveItems()
+                    CoreDataManager.shared.saveItems()
                 }
                 
             }

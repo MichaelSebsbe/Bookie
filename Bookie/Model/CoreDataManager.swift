@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class CoreDataManager {
+    static let shared = CoreDataManager()
+    
     let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     func saveItems(){

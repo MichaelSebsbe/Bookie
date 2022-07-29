@@ -10,7 +10,6 @@ import NotesTextView
 
 class NoteViewController: UIViewController, UITextViewDelegate {
     
-    let coreDataManager = CoreDataManager()
     var note: Note?
     var chapter: Chapter?
     
@@ -22,6 +21,8 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         navigationItem.title = chapter?.title
+        shareButton.isEnabled = false
+        
         setupNotesTextView()
         loadNote()
     }
@@ -32,14 +33,26 @@ class NoteViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func shareBarButtonTapped(_ sender: UIBarButtonItem) {
+        let pdfCreator = PDFCreator(note: note!.attributedText!, chapterTitle: chapter!.title!)
         
+        let pdfData = pdfCreator.prepareData()
+        
+        let activityVC = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+        
+        present(activityVC, animated: true)
     }
     // MARK: TextView Delegate Methods
     
     func textViewDidChange(_ textView: UITextView) {
+        if textView.hasText{
+            shareButton.isEnabled = true
+        } else {
+            shareButton.isEnabled = false
+        }
+    
         saveNote()
     }
-
+    
     
     // MARK: NotesTextView Setup
     func setupNotesTextView() {
@@ -69,27 +82,28 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         if let note = note {
             note.setValue(NSMutableAttributedString(attributedString: textView.attributedText), forKey: "attributedText")
         } else {
-            note = Note(context: coreDataManager.container.viewContext)
+            note = Note(context: CoreDataManager.shared.container.viewContext)
             note?.parentChapter = chapter
             note?.attributedText = NSMutableAttributedString(attributedString: textView.attributedText)
         }
-        note?.parentChapter?.lastModified = Date.now //might need a singleton
-        coreDataManager.saveItems()
+        note?.parentChapter?.lastModified = Date()
+        CoreDataManager.shared.saveItems()
     }
     
     func loadNote() {
         let request = Note.fetchRequest()
         request.predicate = NSPredicate(format: "parentChapter.title MATCHES %@ && parentChapter.parentBook.title MATCHES %@",argumentArray: [chapter!.title!, chapter!.parentBook!.title!] )
-        if let savedNote = coreDataManager.loadItems(with: request) {
+        if let savedNote = CoreDataManager.shared.loadItems(with: request) {
             note = savedNote.first
-            
-            if let attributedString = note?.attributedText {
+            if let attributedString = note?.attributedText,
+               !attributedString.string.isEmpty {
                 textView.attributedText = attributedString
+                shareButton.isEnabled = true
             }
         }
     }
 }
-    
+
 
 
 
