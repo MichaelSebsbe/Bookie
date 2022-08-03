@@ -67,13 +67,13 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         textView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        
         // to adjust the content insets based on keyboard height
         textView.shouldAdjustInsetBasedOnKeyboardHeight = true
         
         // to support iPad
         textView.hostingViewController = self
         
+        textView.keyboardDismissMode = .onDrag
     }
     
     // MARK: Note-Data Manipulation

@@ -22,7 +22,6 @@ struct NetworkRequest {
             
             let searchResponse = try JSONDecoder().decode(SearchResponse.self, from: data)
             
-            
             if searchResponse.docs.isEmpty {
                 bookSearch = []
                 
