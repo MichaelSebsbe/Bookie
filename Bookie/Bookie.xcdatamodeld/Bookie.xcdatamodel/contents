@@ -20,6 +20,6 @@
     <elements>
         <element name="Book" positionX="-159.93359375" positionY="-93.9140625" width="128" height="89"/>
         <element name="Chapter" positionX="21.9140625" positionY="-19.19140625" width="128" height="89"/>
-        <element name="Note" positionX="230.890625" positionY="6.66796875" width="128" height="74"/>
+        <element name="Note" positionX="230.890625" positionY="6.66796875" width="128" height="14"/>
     </elements>
 </model>

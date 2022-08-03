@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ABADE22DD3BEB63DA901772 /* Pods_Bookie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C707B4B87A2E5F043AE5B513 /* Pods_Bookie.framework */; };
 		AD3AB868287495190082C8D6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB867287495190082C8D6 /* BookCell.swift */; };
 		AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB869287496110082C8D6 /* SearchViewController.swift */; };
 		AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86B2874971E0082C8D6 /* BookSearch.swift */; };
 		AD3AB86E28749A1C0082C8D6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */; };
 		AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */; };
-		AD3AB872287500040082C8D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB871287500040082C8D6 /* Constants.swift */; };
+		AD3AB872287500040082C8D6 /* Constants&Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB871287500040082C8D6 /* Constants&Colors.swift */; };
+		AD442CB5289ACE27005198C1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD442CB4289ACE27005198C1 /* NavigationController.swift */; };
 		AD529F8D2887044E00EB3C63 /* NotesTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD529F8B2887042B00EB3C63 /* NotesTextView.framework */; platformFilter = ios; };
 		AD529F8E2887044E00EB3C63 /* NotesTextView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD529F8B2887042B00EB3C63 /* NotesTextView.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C50528732CC200978F46 /* AppDelegate.swift */; };
@@ -49,13 +51,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		28E136428F782B952285FE47 /* Pods-Bookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.debug.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.debug.xcconfig"; sourceTree = "<group>"; };
+		316E0F8523B4E0A3681011A0 /* Pods-Bookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.release.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.release.xcconfig"; sourceTree = "<group>"; };
 		AD38045E2878B5CA00054ABC /* Bookie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bookie.entitlements; sourceTree = "<group>"; };
 		AD3AB867287495190082C8D6 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		AD3AB869287496110082C8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AD3AB86B2874971E0082C8D6 /* BookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearch.swift; sourceTree = "<group>"; };
 		AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
-		AD3AB871287500040082C8D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AD3AB871287500040082C8D6 /* Constants&Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants&Colors.swift"; sourceTree = "<group>"; };
+		AD442CB4289ACE27005198C1 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		AD529F8B2887042B00EB3C63 /* NotesTextView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NotesTextView.framework; sourceTree = "<group>"; };
 		AD529F8F28870E3900EB3C63 /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		AD61C50228732CC200978F46 /* Bookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +82,7 @@
 		ADD449A728734304006930F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ADECEF48287DE39600AC692E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ADF0EC5D2873648E00739526 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		C707B4B87A2E5F043AE5B513 /* Pods_Bookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 			files = (
 				AD529F8D2887044E00EB3C63 /* NotesTextView.framework in Frameworks */,
 				AD6846102876049000F9607D /* MapKit.framework in Frameworks */,
+				8ABADE22DD3BEB63DA901772 /* Pods_Bookie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +109,7 @@
 				AD61C50428732CC200978F46 /* Bookie */,
 				AD61C50328732CC200978F46 /* Products */,
 				AD68460E2876049000F9607D /* Frameworks */,
+				CC6FF0C9B8B4F0C263BBF53D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +154,7 @@
 				ADD449A528733878006930F0 /* ChaptersViewController.swift */,
 				ADF0EC5D2873648E00739526 /* NoteViewController.swift */,
 				AD3AB869287496110082C8D6 /* SearchViewController.swift */,
+				AD442CB4289ACE27005198C1 /* NavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,6 +164,7 @@
 			children = (
 				AD68460F2876049000F9607D /* MapKit.framework */,
 				AD529F8B2887042B00EB3C63 /* NotesTextView.framework */,
+				C707B4B87A2E5F043AE5B513 /* Pods_Bookie.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,11 +177,20 @@
 				AD3AB86B2874971E0082C8D6 /* BookSearch.swift */,
 				AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */,
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
-				AD3AB871287500040082C8D6 /* Constants.swift */,
+				AD3AB871287500040082C8D6 /* Constants&Colors.swift */,
 				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
 				ADECEF48287DE39600AC692E /* Extensions.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CC6FF0C9B8B4F0C263BBF53D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28E136428F782B952285FE47 /* Pods-Bookie.debug.xcconfig */,
+				316E0F8523B4E0A3681011A0 /* Pods-Bookie.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,18 +200,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD61C51928732CC700978F46 /* Build configuration list for PBXNativeTarget "Bookie" */;
 			buildPhases = (
+				5A53DE48C9C6036528BAA7F2 /* [CP] Check Pods Manifest.lock */,
 				AD61C4FE28732CC200978F46 /* Sources */,
 				AD61C4FF28732CC200978F46 /* Frameworks */,
 				AD61C50028732CC200978F46 /* Resources */,
 				AD529F862885FC4500EB3C63 /* Embed Frameworks */,
+				85D3F884E144845A51FB153D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Bookie;
-			packageProductDependencies = (
-			);
 			productName = Bookie;
 			productReference = AD61C50228732CC200978F46 /* Bookie.app */;
 			productType = "com.apple.product-type.application";
@@ -221,8 +240,6 @@
 				Base,
 			);
 			mainGroup = AD61C4F928732CC200978F46;
-			packageReferences = (
-			);
 			productRefGroup = AD61C50328732CC200978F46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,6 +265,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A53DE48C9C6036528BAA7F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85D3F884E144845A51FB153D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookie/Pods-Bookie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bookie/Pods-Bookie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bookie/Pods-Bookie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AD61C4FE28732CC200978F46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,10 +317,11 @@
 				ADD449A828734304006930F0 /* CoreDataManager.swift in Sources */,
 				AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */,
 				AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */,
+				AD442CB5289ACE27005198C1 /* NavigationController.swift in Sources */,
 				AD9664C02891971E00095319 /* PDFCreator.swift in Sources */,
 				AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */,
 				AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */,
-				AD3AB872287500040082C8D6 /* Constants.swift in Sources */,
+				AD3AB872287500040082C8D6 /* Constants&Colors.swift in Sources */,
 				AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */,
 				AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */,
 				ADECEF49287DE39600AC692E /* Extensions.swift in Sources */,
@@ -410,6 +470,7 @@
 		};
 		AD61C51A28732CC700978F46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28E136428F782B952285FE47 /* Pods-Bookie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -447,6 +508,7 @@
 		};
 		AD61C51B28732CC700978F46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 316E0F8523B4E0A3681011A0 /* Pods-Bookie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

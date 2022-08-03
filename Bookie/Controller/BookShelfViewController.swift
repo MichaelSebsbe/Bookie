@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class BookShelfViewController: UITableViewController {
     
     var books = [Book]()
@@ -20,6 +21,7 @@ class BookShelfViewController: UITableViewController {
         }
         title = "BookShelf"
         tableView.rowHeight = 75
+        //tableView.backgroundColor = .white
         // let uiMenuInteractor = UIContextMenuConfiguration
     }
     
@@ -44,7 +46,7 @@ class BookShelfViewController: UITableViewController {
         
         cell.titleLabel.text = books[indexPath.row].title
         cell.authorLabel.text = books[indexPath.row].author
-        cell.authorLabel.textColor = .gray
+        
         if let imageData = books[indexPath.row].imageData,
            let uIImage = UIImage(data: imageData) {
             cell.bookImageView.image = uIImage
@@ -80,8 +82,10 @@ class BookShelfViewController: UITableViewController {
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             
+            
             alertController.addAction(deleteAction)
             alertController.addAction(cancelAction)
+            alertController.view.tintColor = AppColors.navigtationBarTint
             
             present(alertController, animated: true)
             
@@ -101,18 +105,31 @@ class BookShelfViewController: UITableViewController {
             chaptersVC.book = books[index!]
         }
     }
-    
+
     func addBook(_ bookSearch: BookSearch){
-        let book = Book(context: CoreDataManager.shared.container.viewContext)
-        book.title = bookSearch.title
-        book.author = bookSearch.author
-        book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
+        if books.contains(where: { $0.title == bookSearch.title && $0.author == bookSearch.author }) {
+            let alertController = UIAlertController(title: "Book already in shelf", message: "'\(bookSearch.title)' is already in your shelf.", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .cancel)
+            
+            alertController.addAction(okAction)
+            alertController.view.tintColor = AppColors.navigtationBarTint
+            
+            self.present(alertController, animated: true)
+            
+        } else {
         
-        books.append(book)
-        
-        tableView.reloadData()
-        
-        CoreDataManager.shared.saveItems()
+            let book = Book(context: CoreDataManager.shared.container.viewContext)
+            book.title = bookSearch.title
+            book.author = bookSearch.author
+            book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
+            
+            books.append(book)
+            
+            tableView.reloadData()
+            
+            CoreDataManager.shared.saveItems()
+        }
     }
 }
 
@@ -140,7 +157,6 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
     
     @objc func exportAsPDF(){
         // export
-        print("Exporting \(bookToExport?.title)")
         
         guard (bookToExport?.childChapter!.count)! > 0 else {
             let alertController = UIAlertController(title: "Book has no Chapters", message: "Add chapters within the book to Export as PDF", preferredStyle: .alert)
@@ -148,6 +164,7 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
             let cancleAction = UIAlertAction(title: "OK", style: .cancel)
             
             alertController.addAction(cancleAction)
+            alertController.view.tintColor = AppColors.navigtationBarTint
             
             present(alertController, animated: true)
             
@@ -159,6 +176,8 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
         let pdfData = pdfCreator.prepareData()
         
         let activityVC = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+        //needs an anchor for iPad
+        activityVC.popoverPresentationController?.sourceView = tableView
           
         present(activityVC, animated: true)
         

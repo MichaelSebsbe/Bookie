@@ -16,6 +16,9 @@ class BookCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        authorLabel.textColor = AppColors.cellSecondaryColor
+        bookImageView.image = UIImage(systemName: "book")?.withRenderingMode(.alwaysTemplate)
+        bookImageView.tintColor = AppColors.navigtationBarTint
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -26,11 +26,11 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qAD-su-ArI">
                                             <rect key="frame" x="10" y="0.0" width="394" height="60.5"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vM9-jH-PNt">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="book" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vM9-jH-PNt">
                                                     <rect key="frame" x="0.0" y="2" width="40" height="57.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="8FQ-Fj-3bj"/>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="p1G-Yl-idH"/>
+                                                        <constraint firstAttribute="width" constant="40" id="p1G-Yl-idH"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="dMt-5I-iXf">
@@ -178,7 +178,7 @@
         <!--Navigation Controller-->
         <scene sceneID="JNE-2A-WRL">
             <objects>
-                <navigationController id="i51-KJ-PH4" sceneMemberID="viewController">
+                <navigationController id="i51-KJ-PH4" customClass="NavigationController" customModule="Bookie" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ego-Zv-TBg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

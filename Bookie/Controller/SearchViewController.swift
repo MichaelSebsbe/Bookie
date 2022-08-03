@@ -21,6 +21,7 @@ class SearchViewController: UITableViewController {
         let _ = searchBar.becomeFirstResponder()
         cantFindLabel.isHidden = true
         searchBar.placeholder = "Search by book title"
+        searchBar.tintColor = AppColors.navigtationBarTint
     }
     
     // MARK: - Tableview delegate Methods
@@ -30,9 +31,10 @@ class SearchViewController: UITableViewController {
         let selectedBook = searchResults[index]
         
         let bookShelfVC = (presentingViewController as! UINavigationController).viewControllers[0] as! BookShelfViewController
-        bookShelfVC.addBook(selectedBook)
         
         self.dismiss(animated: true)
+        
+        bookShelfVC.addBook(selectedBook)
     }
     
     // MARK: - Tableview data source
@@ -53,24 +55,28 @@ class SearchViewController: UITableViewController {
         searchCell.authorLabel.text = book.author
         
         if let isbn = book.isbn {
-            
             Task{
                 do {
-                    let coverImage = try await NetworkRequest.fetchImage(for: isbn) ?? UIImage(systemName: "book.fill")
-                    searchCell.bookImageView.image = coverImage
-                    searchResults[indexPath.row].image = coverImage
+                    let coverImage = try await NetworkRequest.fetchImage(for: isbn) ?? UIImage(systemName: "book")?.withRenderingMode(.alwaysTemplate)
+                    coverImage?.withTintColor(AppColors.navigtationBarTint)
                     
+                    if let isRectEmpty = coverImage?.ciImage?.extent.isEmpty,
+                        isRectEmpty {
+                        let bookImage = UIImage(systemName: "book")?.withRenderingMode(.alwaysTemplate)
+                        searchCell.bookImageView.image = bookImage
+                        searchCell.imageView?.tintColor = AppColors.navigtationBarTint
+                    } else {
+                        searchCell.bookImageView.image = coverImage
+                        // set the image in the data
+                        searchResults[indexPath.row].image = coverImage
+                    }
                 }
                 catch {print(error.localizedDescription)}
-                
             }
-        } else {
-            searchCell.bookImageView.image = UIImage(systemName: "book.fill")
         }
         
         return searchCell
     }
-    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -84,6 +90,7 @@ extension SearchViewController: UISearchBarDelegate {
             tableView.reloadData()
             
             let spinner = UIActivityIndicatorView(style: .large)
+            spinner.color = AppColors.navigtationBarTint
             spinner.startAnimating()
             tableView.backgroundView = spinner
             

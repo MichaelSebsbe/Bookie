@@ -38,8 +38,10 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         let pdfData = pdfCreator.prepareData()
         
         let activityVC = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+        activityVC.popoverPresentationController?.barButtonItem = shareButton
         
         present(activityVC, animated: true)
+        
     }
     // MARK: TextView Delegate Methods
     
@@ -73,7 +75,13 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         // to support iPad
         textView.hostingViewController = self
         
+        
+        let bottom = NSMakeRange(textView.text.count - 1, 1)
+        textView.scrollRangeToVisible(bottom)
+        
         textView.keyboardDismissMode = .onDrag
+        textView.tintColor = AppColors.navigtationBarTint
+      
     }
     
     // MARK: Note-Data Manipulation

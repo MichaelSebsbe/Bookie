@@ -18,7 +18,7 @@ class ChaptersViewController: UITableViewController {
         
         // query load to only show books chapters
         let request = Chapter.fetchRequest()
-        request.predicate = NSPredicate(format: "parentBook.title MATCHES %@", book!.title!)
+        request.predicate = NSPredicate(format: "parentBook.title MATCHES %@ && parentBook.author MATCHES %@ ", argumentArray: [book!.title!, book!.author!])
         if let savedChapters = CoreDataManager.shared.loadItems(with: request){
             chapters = savedChapters
         }
@@ -70,6 +70,7 @@ class ChaptersViewController: UITableViewController {
         
         alertController.addAction(cancelAction)
         alertController.addAction(addAction)
+        alertController.view.tintColor = AppColors.navigtationBarTint
         
         self.present(alertController, animated: true)
         
@@ -91,7 +92,8 @@ class ChaptersViewController: UITableViewController {
         let chapter = chapters[indexPath.row]
         
         content.text = chapter.title
-        content.secondaryText = "Last modified \(chapter.lastModified?.formatted() ?? "NA")"
+        content.secondaryAttributedText = NSAttributedString(string: "Last modified \(chapter.lastModified?.formatted() ?? "NA")", attributes: [NSAttributedString.Key.foregroundColor : AppColors.cellSecondaryColor])
+        
         cell.contentConfiguration = content
         
         return cell
@@ -124,6 +126,7 @@ class ChaptersViewController: UITableViewController {
             
             alertController.addAction(deleteAction)
             alertController.addAction(cancelAction)
+            alertController.view.tintColor = AppColors.navigtationBarTint
             
             present(alertController, animated: true)
             
