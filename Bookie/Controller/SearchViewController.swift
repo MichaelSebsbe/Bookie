@@ -7,12 +7,23 @@
 
 import UIKit
 
+let searchImage = UIImage(named: K.searchArt)!
+
 class SearchViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cantFindLabel: UILabel!
     
-    var searchResults = [BookSearch]()
+    var searchResults: [BookSearch] {
+        didSet{
+            refreshTableViewBackground()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        searchResults = []
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +33,17 @@ class SearchViewController: UITableViewController {
         cantFindLabel.isHidden = true
         searchBar.placeholder = "Search by book title"
         searchBar.tintColor = AppColors.navigtationBarTint
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        refreshTableViewBackground()
+    }
+    
+    private func refreshTableViewBackground(){
+        AnimationManager.refreshTableViewBackground(tableView, collection: searchResults, image: searchImage)
     }
     
     // MARK: - Tableview delegate Methods
@@ -83,6 +105,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         cantFindLabel.isHidden = true
         view.endEditing(true)
+        
         if let searchString = searchBar.text,
            searchString.count > 0 {
             

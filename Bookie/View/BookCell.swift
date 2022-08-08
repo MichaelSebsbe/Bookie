@@ -19,6 +19,7 @@ class BookCell: UITableViewCell {
         authorLabel.textColor = AppColors.cellSecondaryColor
         bookImageView.image = UIImage(systemName: "book")?.withRenderingMode(.alwaysTemplate)
         bookImageView.tintColor = AppColors.navigtationBarTint
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

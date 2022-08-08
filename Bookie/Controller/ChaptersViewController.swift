@@ -7,10 +7,21 @@
 
 import UIKit
 
+let emptyChaptersImage = UIImage(named: K.emptyChaptersArt)!
+
 class ChaptersViewController: UITableViewController {
     
     var book: Book?
-    var chapters = [Chapter]()
+    var chapters: [Chapter] {
+        didSet{
+            refreshTableViewBackground()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        chapters = []
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +33,17 @@ class ChaptersViewController: UITableViewController {
         if let savedChapters = CoreDataManager.shared.loadItems(with: request){
             chapters = savedChapters
         }
+        
+        refreshTableViewBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // because date modified will change after note is edited
         tableView.reloadData()
+    }
+    
+    private func refreshTableViewBackground(){
+        AnimationManager.refreshTableViewBackground(tableView, collection: chapters, image: emptyChaptersImage)
     }
     
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {

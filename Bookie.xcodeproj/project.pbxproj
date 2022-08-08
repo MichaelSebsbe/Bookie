@@ -25,6 +25,7 @@
 		AD61C51528732CC700978F46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51328732CC700978F46 /* LaunchScreen.storyboard */; };
 		AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */; };
 		AD6846102876049000F9607D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD68460F2876049000F9607D /* MapKit.framework */; };
+		AD6A1723289DBA90004218BE /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A1722289DBA90004218BE /* AnimationManager.swift */; };
 		AD9664C02891971E00095319 /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9664BF2891971E00095319 /* PDFCreator.swift */; };
 		ADABA2D02876209800449CDA /* pageFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2CF2876209800449CDA /* pageFlip.mp3 */; };
 		ADABA2D2287620D800449CDA /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABA2D1287620D800449CDA /* SoundEffects.swift */; };
@@ -73,6 +74,7 @@
 		AD61C51628732CC700978F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
 		AD68460F2876049000F9607D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AD6A1722289DBA90004218BE /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		AD9664BF2891971E00095319 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
 		ADABA2CF2876209800449CDA /* pageFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pageFlip.mp3; sourceTree = "<group>"; };
 		ADABA2D1287620D800449CDA /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				AD3AB86F2874AB050082C8D6 /* SearchResponse.swift */,
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
 				AD3AB871287500040082C8D6 /* Constants&Colors.swift */,
+				AD6A1722289DBA90004218BE /* AnimationManager.swift */,
 				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
 				ADECEF48287DE39600AC692E /* Extensions.swift */,
 			);
@@ -318,6 +321,7 @@
 				AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */,
 				AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */,
 				AD442CB5289ACE27005198C1 /* NavigationController.swift in Sources */,
+				AD6A1723289DBA90004218BE /* AnimationManager.swift in Sources */,
 				AD9664C02891971E00095319 /* PDFCreator.swift in Sources */,
 				AD61C51028732CC200978F46 /* Bookie.xcdatamodeld in Sources */,
 				AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */,

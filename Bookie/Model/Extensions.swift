@@ -45,4 +45,29 @@ extension NSMutableAttributedString {
         }
         endEditing()
     }
+    
+    func replaceWhiteFontColors(){
+        beginEditing()
+        self.enumerateAttribute(.foregroundColor, in: NSRange(location: 0, length: self.length)) { value, range, stop in
+            // need to fix 
+            if value as? UIColor == .white {
+                removeAttribute(.foregroundColor, range: range)
+                addAttribute(.foregroundColor, value: UIColor.black, range: range)
+            }
+        }
+        endEditing()
+    }
+    
+}
+
+extension UIImage {
+    
+    func resizeImageToScreenSize() -> UIImage? {
+        let screenSize = UIScreen.main.bounds.size
+        UIGraphicsBeginImageContextWithOptions(screenSize, false, 0.0)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: screenSize))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resizedImage
+    }
 }

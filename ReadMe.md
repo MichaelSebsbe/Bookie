@@ -19,3 +19,7 @@ A book summary App, use to write your summaries in an organized way so you dont 
         - if decided to implement, use pageViewController to flip through pages while on reading mode
         
     - Better UI!
+    
+## Attributions 
+- Illustrations
+<a href="https://www.freepik.com/vectors/design-pack">Design pack vector created by freepik - www.freepik.com</a> 

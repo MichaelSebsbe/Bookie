@@ -14,6 +14,9 @@ struct K {
     static let chapterCellID = "chapterCell"
     static let segueIDToChapter = "goToChapters"
     static let segueIDToNotes = "goToNotes"
+    static let emptyShelfArt = "EmptyShelf"
+    static let emptyChaptersArt = "EmptyChapters"
+    static let searchArt = "SearchArt"
 }
 
 struct AppColors {

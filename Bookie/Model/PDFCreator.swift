@@ -35,6 +35,7 @@ class PDFCreator {
     private var chapters: [Chapter]?
     
     private var note: NSAttributedString?
+    private var chapterTitle: String?
     
     private var startPage = 0
     private let chapterFont = UIFont.systemFont(ofSize: 40.0, weight: .heavy)
@@ -50,13 +51,9 @@ class PDFCreator {
 
     init(note: NSMutableAttributedString, chapterTitle: String) {
         // adding Chapter title to top of note
-        note.insert(
-            NSAttributedString(
-                string: chapterTitle + "\n",
-                attributes: [.font : chapterFont]) ,
-            at: 0
-        )
+        note.replaceWhiteFontColors()
         self.note = note
+        self.chapterTitle = chapterTitle
     }
     
     
@@ -79,8 +76,16 @@ class PDFCreator {
         let data = renderer.pdfData { (context) in
             if book != nil {
                 drawBook(context)
-            } else if let note = note {
+            } else if let note = note,
+                      let chapterTitle = chapterTitle {
                 // draw note in chapter
+                let note = NSMutableAttributedString(attributedString: note)
+                note.insert(
+                    NSAttributedString(
+                        string: chapterTitle + "\n",
+                        attributes: [.font : chapterFont]) ,
+                    at: 0
+                )
                 addText(note, context: context)
             }
         }

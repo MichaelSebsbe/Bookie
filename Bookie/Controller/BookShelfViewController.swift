@@ -7,11 +7,21 @@
 
 import UIKit
 
+let emptyShelfImage = UIImage(named: K.emptyShelfArt)!
 
 class BookShelfViewController: UITableViewController {
     
-    var books = [Book]()
+    var books: [Book] {
+        didSet{
+            refreshTableViewBackground()
+        }
+    }
     var bookToExport: Book?
+    
+    required init?(coder: NSCoder) {
+        books = []
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +30,18 @@ class BookShelfViewController: UITableViewController {
             self.books = savedBooks
         }
         title = "BookShelf"
+        
         tableView.rowHeight = 75
+        
+        refreshTableViewBackground()
         //tableView.backgroundColor = .white
         // let uiMenuInteractor = UIContextMenuConfiguration
     }
     
+    private func refreshTableViewBackground(){
+        AnimationManager.refreshTableViewBackground(tableView, collection: books, image: emptyShelfImage)
+    }
+
     private func addInteraction(toCell cell: UITableViewCell) {
         let interaction = UIContextMenuInteraction(delegate: self)
         cell.addInteraction(interaction)
@@ -75,6 +92,7 @@ class BookShelfViewController: UITableViewController {
                 
                 DispatchQueue.main.async {
                     tableView.deleteRows(at: [indexPath], with: .fade)
+                    
                     SoundEffect.shared.playSoundEffect(.deletion)
                     CoreDataManager.shared.saveItems()
                 }
