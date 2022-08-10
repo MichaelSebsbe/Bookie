@@ -2,7 +2,7 @@
 A book summary App, to write your summaries in an organized way so you don't ever forget the contents of a book you read. You can also export your summary as a pdf file.
 
 
-![](https://github.com/MichaelSebsbe/Bookie/blob/main/Screen%20Recording.gif)
+![](https://github.com/MichaelSebsbe/Bookie/blob/main/Screen%20Recording.gif) ![](https://github.com/MichaelSebsbe/Bookie/blob/main/Screen%20Recording.gif)
 
 
 
