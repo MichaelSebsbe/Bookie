@@ -16,9 +16,8 @@ A book summary App, to write your summaries in an organized way so you don't eve
     - Going forward I will keep building on the simulator branch, therfore to test on actual device, I just need to replace the frameworkFile from Ios branch
     
 ##Features to build on (will add more)
-    - Maybe add reading mode and editing mode  
-        - this is not really necessary, but since I already have code for book like formating(on custom menu branch)
-        - if decided to implement, use pageViewController to flip through pages while on reading mode
+    - Maybe add reading mode and editing mode, this is not really necessary, but since I already have code for book like formating(on custom menu branch)
+    - if decided to implement, use pageViewController to flip through pages while on reading mode
     
 ## Attributions 
 - Illustrations
