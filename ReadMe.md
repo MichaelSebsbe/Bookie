@@ -1,6 +1,11 @@
 #  BOOKIE
 A book summary App, to write your summaries in an organized way so you don't ever forget the contents of a book you read. You can also export your summary as a pdf file.
+
+
 ![](https://github.com/MichaelSebsbe/Bookie/blob/main/Simulator%20Screen%20Recording%20-%20iPhone%2013%20Pro%20-%202022-08-10%20at%2016.11.56.gif)
+
+
+
 # Implemntation
     - Core Data for saving notes
     - AVFoundation for sound effects
