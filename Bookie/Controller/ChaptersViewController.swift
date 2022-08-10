@@ -57,9 +57,10 @@ class ChaptersViewController: UITableViewController {
             
             if let title = alertController.textFields?.first?.text,
                title.count > 0 {
-                
+
                 if self.chapters.contains(where: {$0.title == title
-                }) {
+                }) || title.contains(where:{ $0 == "\\"})
+                {
                     let texfield = alertController.textFields?.first
                     texfield?.placeholder = "Choose a different Name"
                     texfield?.text = ""

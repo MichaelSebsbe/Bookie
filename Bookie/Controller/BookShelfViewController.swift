@@ -17,6 +17,7 @@ class BookShelfViewController: UITableViewController {
         }
     }
     var bookToExport: Book?
+    var indexOfBookToExport: IndexPath?
     
     required init?(coder: NSCoder) {
         books = []
@@ -158,7 +159,7 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
         let location = interaction.location(in: self.tableView)
         
         if let indexPath = tableView.indexPathForRow(at: location){
-    
+            indexOfBookToExport = indexPath
             bookToExport = books[indexPath.row]
             
             let exportAction = UICommand(title: "Export as PDF", action: #selector(exportAsPDF))
@@ -166,6 +167,7 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
                 let children: [UIMenuElement] = [exportAction]
                 return UIMenu(title: "", children: children)
             }
+            
             
             return configuration
         } else {
@@ -184,6 +186,8 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
             alertController.addAction(cancleAction)
             alertController.view.tintColor = AppColors.navigtationBarTint
             
+            
+            
             present(alertController, animated: true)
             
             return
@@ -195,7 +199,7 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
         
         let activityVC = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
         //needs an anchor for iPad
-        activityVC.popoverPresentationController?.sourceView = tableView
+        activityVC.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexOfBookToExport!)
           
         present(activityVC, animated: true)
         

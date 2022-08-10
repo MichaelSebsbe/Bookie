@@ -17,6 +17,7 @@ struct K {
     static let emptyShelfArt = "EmptyShelf"
     static let emptyChaptersArt = "EmptyChapters"
     static let searchArt = "SearchArt"
+    static let appLogo = "Logo"
 }
 
 struct AppColors {

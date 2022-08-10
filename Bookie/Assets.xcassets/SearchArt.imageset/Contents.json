@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "iphone Light search.png",
+      "filename" : "iphone Light Search.png",
       "idiom" : "iphone",
       "scale" : "1x"
     },
@@ -22,7 +22,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "iphone dark search copy.png",
+      "filename" : "iphone Dark Search .png",
       "idiom" : "iphone",
       "scale" : "1x"
     },
@@ -37,7 +37,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "iphone Light search@2x.png",
+      "filename" : "iphone Light Search@2x.png",
       "idiom" : "iphone",
       "scale" : "2x"
     },
@@ -48,7 +48,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "iphone dark search copy@2x.png",
+      "filename" : "iphone Dark Search @2x.png",
       "idiom" : "iphone",
       "scale" : "2x"
     },
@@ -63,7 +63,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "iphone Light search@3x.png",
+      "filename" : "iphone Light Search@3x.png",
       "idiom" : "iphone",
       "scale" : "3x"
     },
@@ -74,7 +74,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "iphone dark search copy@3x.png",
+      "filename" : "iphone Dark Search @3x.png",
       "idiom" : "iphone",
       "scale" : "3x"
     },
@@ -100,7 +100,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "ipad dark search.png",
+      "filename" : "ipad dark search .png",
       "idiom" : "ipad",
       "scale" : "1x"
     },
@@ -126,7 +126,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "ipad dark search@2x.png",
+      "filename" : "ipad dark search @2x.png",
       "idiom" : "ipad",
       "scale" : "2x"
     }

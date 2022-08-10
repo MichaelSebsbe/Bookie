@@ -99,11 +99,16 @@ class PDFCreator {
         
         let tagParagraphStyle = NSMutableParagraphStyle()
         tagParagraphStyle.alignment = .center
+        //i want to add the app logo on pdf under title
+        let appLogo = NSTextAttachment(image: UIImage(named: K.appLogo)!)
+        let appLogoString = NSAttributedString(attachment: appLogo)
         
         let tagFont =  UIFont.systemFont(ofSize: 20.0, weight: .regular)
         let tagtext = NSMutableAttributedString(string: "\n\nCreated using Bookie App.\n(Available in the App Store)", attributes: [NSAttributedString.Key.font : tagFont, NSAttributedString.Key.paragraphStyle : tagParagraphStyle])
-      
+        
         tagtext.insert(coverTitle, at: 0)
+        // not working YET
+        tagtext.append(appLogoString)
         
         self.addText(tagtext, context: context, includePageNumber: false)
         
@@ -114,6 +119,7 @@ class PDFCreator {
             if let note = CoreDataManager.shared.loadItems(with: request)?.first{
                 
                 let text = NSMutableAttributedString(attributedString: (note.attributedText)!)
+                text.replaceWhiteFontColors()
                 
                 text.insert(
                     NSAttributedString(
