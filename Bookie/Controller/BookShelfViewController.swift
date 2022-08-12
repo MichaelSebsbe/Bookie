@@ -68,6 +68,8 @@ class BookShelfViewController: UITableViewController {
         if let imageData = books[indexPath.row].imageData,
            let uIImage = UIImage(data: imageData) {
             cell.bookImageView.image = uIImage
+        } else {
+            cell.bookImageView.image = UIImage(systemName: "book")?.withTintColor(AppColors.navigtationBarTint)
         }
         
         addInteraction(toCell: cell)
@@ -101,7 +103,6 @@ class BookShelfViewController: UITableViewController {
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             
-            
             alertController.addAction(deleteAction)
             alertController.addAction(cancelAction)
             alertController.view.tintColor = AppColors.navigtationBarTint
@@ -126,6 +127,7 @@ class BookShelfViewController: UITableViewController {
     }
 
     func addBook(_ bookSearch: BookSearch){
+        // check if book not in shelf already
         if books.contains(where: { $0.title == bookSearch.title && $0.author == bookSearch.author }) {
             let alertController = UIAlertController(title: "Book already in shelf", message: "'\(bookSearch.title)' is already in your shelf.", preferredStyle: .alert)
             

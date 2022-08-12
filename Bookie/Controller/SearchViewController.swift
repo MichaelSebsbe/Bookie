@@ -50,7 +50,8 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        let selectedBook = searchResults[index]
+        var selectedBook = searchResults[index]
+        selectedBook.image = tableView.cellForRow(at: indexPath)?.imageView?.image
         
         let bookShelfVC = (presentingViewController as! UINavigationController).viewControllers[0] as! BookShelfViewController
         
@@ -82,16 +83,9 @@ class SearchViewController: UITableViewController {
                     let coverImage = try await NetworkRequest.fetchImage(for: isbn) ?? UIImage(systemName: "book")?.withRenderingMode(.alwaysTemplate)
                     coverImage?.withTintColor(AppColors.navigtationBarTint)
                     
-                    if let isRectEmpty = coverImage?.ciImage?.extent.isEmpty,
-                        isRectEmpty {
-                        let bookImage = UIImage(systemName: "book")?.withRenderingMode(.alwaysTemplate)
-                        searchCell.bookImageView.image = bookImage
-                        searchCell.imageView?.tintColor = AppColors.navigtationBarTint
-                    } else {
-                        searchCell.bookImageView.image = coverImage
-                        // set the image in the data
-                        searchResults[indexPath.row].image = coverImage
-                    }
+                    searchCell.bookImageView.image = coverImage
+                    // set the image in the data
+                    
                 }
                 catch {print(error.localizedDescription)}
             }
