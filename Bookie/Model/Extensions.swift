@@ -49,8 +49,7 @@ extension NSMutableAttributedString {
     func replaceWhiteFontColors(){
         beginEditing()
         self.enumerateAttribute(.foregroundColor, in: NSRange(location: 0, length: self.length)) { value, range, stop in
-            // need to fix
-            print((value as? UIColor)?.hexValue())
+
             if let value = value as? UIColor {
                 if value.hexValue() == "#FFFFFF" {
                     removeAttribute(.foregroundColor, range: range)

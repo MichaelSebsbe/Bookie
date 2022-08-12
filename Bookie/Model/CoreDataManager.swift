@@ -14,6 +14,10 @@ class CoreDataManager {
     
     let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
+    private init() {
+        ValueTransformer.setValueTransformer(NSMutableAttributedStringTransformer(), forName: NSValueTransformerName("NSMutableAttributedStringTransformer"))
+    }
+    
     func saveItems(){
         
         if container.viewContext.hasChanges {
