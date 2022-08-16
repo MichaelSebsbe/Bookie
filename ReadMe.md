@@ -6,7 +6,7 @@ A book summary App, to write your summaries in an organized way so you don't eve
 
 
 
-# Implemntation
+# Implementation
     - Core Data for saving notes
     - AVFoundation for sound effects
     - PDFKit for creating PDF file
