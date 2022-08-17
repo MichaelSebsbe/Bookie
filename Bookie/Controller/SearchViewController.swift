@@ -13,6 +13,7 @@ class SearchViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cantFindLabel: UILabel!
+    var tapGestureRecognizer: UITapGestureRecognizer!
     
     var searchResults: [BookSearch] {
         didSet{
@@ -36,8 +37,9 @@ class SearchViewController: UITableViewController {
         
         tabBarController?.tabBar.tintColor = AppColors.navigtationBarTint
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
@@ -105,9 +107,11 @@ class SearchViewController: UITableViewController {
 }
 
 extension SearchViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         cantFindLabel.isHidden = true
         view.endEditing(true)
+        view.removeGestureRecognizer(tapGestureRecognizer)
         
         if let searchString = searchBar.text,
            searchString.count > 0 {
