@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NotesTextView-Swift.h</key>
 		<data>
-		+JW857MxHxUI6XQux2kuIwVELF8=
+		AY6Hwtxk/mWvkGZOYNMfvnVDG30=
 		</data>
 		<key>Headers/NotesTextView.h</key>
 		<data>
@@ -14,35 +14,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0IkatAlfNpR9nyIzPNylxK3FKmQ=
+		/NS6HixOosu/wvqst6kzXMFYIUw=
 		</data>
-		<key>Modules/NotesTextView.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
+		<key>Modules/NotesTextView.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		0HFlHHUzUfQIQ7y1EQtQgyQTqtI=
+		jqoXXDJVBEw2Mbj66yv2s0kx8R8=
 		</data>
-		<key>Modules/NotesTextView.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
+		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		KxvPSMP48+j4qYsx55+kGCrgCkw=
+		FSPnLbho3G+LL9smI3XgVOqBIQ4=
 		</data>
-		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		9Oh0rjOoeZPxqWRVv3gVcQ17vsM=
+		EXVkbyDZ/fpfS+iiU/yV54GS+zk=
 		</data>
-		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		o/Egble2VwTveuAz+96HF3ECp7o=
-		</data>
-		<key>Modules/NotesTextView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<data>
-		iXLv75RQ8hNNIUG0t7BB7JanYEg=
-		</data>
-		<key>Modules/NotesTextView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<data>
-		Erb64nzyy/MikeH8CdEiA3PUNXU=
+		+DyAENFtozz8Mjhy4PsArBp8ID8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		YklBIeen/oPDsM04pq861FA4q+A=
+		rs/8/dZL3rohGssIDLDsTQFOd9w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -51,7 +43,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wLrADAgq67Cfh0609nhh3GkrjANFHga67py6kge+aDY=
+			24sMBF8pcx+rLwZZJbI3c+oF6Bzrea9g3tfIZo6g73w=
 			</data>
 		</dict>
 		<key>Headers/NotesTextView.h</key>
@@ -61,53 +53,39 @@
 			0MFqBM8ZC+wApPL0vYOdEzScYaXXXyDPQ+IcXqQzmVs=
 			</data>
 		</dict>
-		<key>Modules/NotesTextView.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
+		<key>Modules/NotesTextView.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			63kbVzboderydOuSKm5zCJJHdoPA1ADJQWRWpE1EGTo=
+			1ULeSqTv6cFuvH9PYOVGxuhS3k1omPi8c6OXASBgNTQ=
 			</data>
 		</dict>
-		<key>Modules/NotesTextView.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
+		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mrXbXg9TrGb0fP9Iv/ELD8GpRaTXFDYUddt0zZZ0Rig=
+			KnRdWE4y6t4QM5zi5JDptPdHFgJy1Tku+7GLkZS2aNM=
 			</data>
 		</dict>
-		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			V19tfzgarw6a6IoWmO9i5IzMg+ieF0QcFXL2Ds6NXDU=
+			IoGNxSnl/Nuc7N/rEZDVs7zbe8clc/gpcxPxhsnaemI=
 			</data>
 		</dict>
-		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<key>Modules/NotesTextView.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LAGmSgS0w/t9YgK5rDiolu6PqlXHsQDLfcN+WRjubAI=
-			</data>
-		</dict>
-		<key>Modules/NotesTextView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			pUFSZSAAQo5eFAcGHPm3obPivE41MLGVHp9g8mtI4sY=
-			</data>
-		</dict>
-		<key>Modules/NotesTextView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			7MptKEKuA0oxMLFkpK+hkMpa9rjMlLd7VZ2Q1sF7we8=
+			kKViSKmHBAv+EupKkxXah6H9zose908aBGyYxHG43g0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EYBnkIc/qTHE+FSqr7OXgkBNz7gLFoP9rVkSfNyS1Js=
+			EdDZD3IFSa/2i+nNE2JnWIXJvcknzOXVTB7pFYjqncE=
 			</data>
 		</dict>
 	</dict>

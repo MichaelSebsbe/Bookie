@@ -6,6 +6,6 @@ framework module NotesTextView {
 }
 
 module NotesTextView.Swift {
-    header "NotesTextView-Swift.h"
-    requires objc
+  header "NotesTextView-Swift.h"
+  requires objc
 }
