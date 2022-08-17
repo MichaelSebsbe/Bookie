@@ -29,10 +29,15 @@ class SearchViewController: UITableViewController {
         super.viewDidLoad()
         
         searchBar.delegate = self
-        let _ = searchBar.becomeFirstResponder()
+        cantFindLabel.textColor = AppColors.cellSecondaryColor
         cantFindLabel.isHidden = true
         searchBar.placeholder = "Search by book title"
         searchBar.tintColor = AppColors.navigtationBarTint
+        
+        tabBarController?.tabBar.tintColor = AppColors.navigtationBarTint
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -40,6 +45,10 @@ class SearchViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         refreshTableViewBackground()
+    }
+    
+    @objc func dismissKeyboard(){
+        searchBar.resignFirstResponder()
     }
     
     private func refreshTableViewBackground(){

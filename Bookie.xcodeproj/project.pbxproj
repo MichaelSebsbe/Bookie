@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8ABADE22DD3BEB63DA901772 /* Pods_Bookie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C707B4B87A2E5F043AE5B513 /* Pods_Bookie.framework */; };
+		AD049EC728A6F59200000BFC /* AddManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD049EC628A6F59100000BFC /* AddManuallyViewController.swift */; };
 		AD3AB868287495190082C8D6 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB867287495190082C8D6 /* BookCell.swift */; };
 		AD3AB86A287496110082C8D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB869287496110082C8D6 /* SearchViewController.swift */; };
 		AD3AB86C2874971E0082C8D6 /* BookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3AB86B2874971E0082C8D6 /* BookSearch.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		28E136428F782B952285FE47 /* Pods-Bookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.debug.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.debug.xcconfig"; sourceTree = "<group>"; };
 		316E0F8523B4E0A3681011A0 /* Pods-Bookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie.release.xcconfig"; path = "Target Support Files/Pods-Bookie/Pods-Bookie.release.xcconfig"; sourceTree = "<group>"; };
+		AD049EC628A6F59100000BFC /* AddManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddManuallyViewController.swift; path = Bookie/Controller/AddManuallyViewController.swift; sourceTree = SOURCE_ROOT; };
 		AD38045E2878B5CA00054ABC /* Bookie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bookie.entitlements; sourceTree = "<group>"; };
 		AD3AB867287495190082C8D6 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		AD3AB869287496110082C8D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				AD61C51328732CC700978F46 /* LaunchScreen.storyboard */,
 				AD61C50B28732CC200978F46 /* Main.storyboard */,
+				AD049EC628A6F59100000BFC /* AddManuallyViewController.swift */,
 				AD3AB867287495190082C8D6 /* BookCell.swift */,
 			);
 			path = View;
@@ -331,6 +334,7 @@
 				AD3AB872287500040082C8D6 /* Constants&Colors.swift in Sources */,
 				AD7B573928A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift in Sources */,
 				AD61C50628732CC200978F46 /* AppDelegate.swift in Sources */,
+				AD049EC728A6F59200000BFC /* AddManuallyViewController.swift in Sources */,
 				AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */,
 				ADECEF49287DE39600AC692E /* Extensions.swift in Sources */,
 				ADABA2D2287620D800449CDA /* SoundEffects.swift in Sources */,
