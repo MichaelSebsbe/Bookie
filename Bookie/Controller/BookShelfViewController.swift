@@ -30,9 +30,14 @@ class BookShelfViewController: UITableViewController {
         if let savedBooks = CoreDataManager.shared.loadItems(with: Book.fetchRequest()){
             self.books = savedBooks
         }
-        title = "BookShelf"
         
-        tableView.rowHeight = 75
+        let logo = UIImage(named: K.appLogo)
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+        
+        tableView.rowHeight = 90
+        tableView.separatorStyle = .singleLine
         
         refreshTableViewBackground()
         //tableView.backgroundColor = .white
@@ -42,7 +47,7 @@ class BookShelfViewController: UITableViewController {
     private func refreshTableViewBackground(){
         AnimationManager.refreshTableViewBackground(tableView, collection: books, image: emptyShelfImage)
     }
-
+    
     private func addInteraction(toCell cell: UITableViewCell) {
         let interaction = UIContextMenuInteraction(delegate: self)
         cell.addInteraction(interaction)
@@ -123,34 +128,46 @@ class BookShelfViewController: UITableViewController {
         if let chaptersVC = segue.destination as? ChaptersViewController {
             let index = tableView.indexPathForSelectedRow?.row
             chaptersVC.book = books[index!]
+        } else if let editVC = segue.destination as? AddManuallyViewController {
+            editVC.book = bookToExport
+            editVC.bookIndexOnShelf = indexOfBookToExport
         }
     }
-
-    func addBook(_ bookSearch: BookSearch){
-        // check if book not in shelf already
-        if books.contains(where: { $0.title == bookSearch.title && $0.author == bookSearch.author }) {
-            let alertController = UIAlertController(title: "Book already in shelf", message: "'\(bookSearch.title)' is already in your shelf.", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .cancel)
-            
-            alertController.addAction(okAction)
-            alertController.view.tintColor = AppColors.navigtationBarTint
-            
-            self.present(alertController, animated: true)
+    
+    func addBook(_ bookSearch: BookSearch, at indexPath: IndexPath? = nil){
+        // we want to edit book
+        if let indexPath = indexPath {
+            let editedBook = books[indexPath.row]
+            editedBook.title = bookSearch.title
+            editedBook.author = bookSearch.author
+            editedBook.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
             
         } else {
+            
+            // check if book not in shelf already
+            if books.contains(where: { $0.title == bookSearch.title && $0.author == bookSearch.author }) {
+                let alertController = UIAlertController(title: "Book already in shelf", message: "'\(bookSearch.title)' is already in your shelf.", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .cancel)
+                
+                alertController.addAction(okAction)
+                alertController.view.tintColor = AppColors.navigtationBarTint
+                
+                self.present(alertController, animated: true)
+                
+            } else {
         
-            let book = Book(context: CoreDataManager.shared.container.viewContext)
-            book.title = bookSearch.title
-            book.author = bookSearch.author
-            book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
-            
-            books.append(book)
-            
-            tableView.reloadData()
-            
-            CoreDataManager.shared.saveItems()
+                let book = Book(context: CoreDataManager.shared.container.viewContext)
+                book.title = bookSearch.title
+                book.author = bookSearch.author
+                book.imageData = bookSearch.image?.jpegData(compressionQuality: 1.0)
+                
+                books.append(book)
+            }
         }
+        tableView.reloadData()
+        
+        CoreDataManager.shared.saveItems()
     }
 }
 
@@ -165,11 +182,14 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
             bookToExport = books[indexPath.row]
             
             let exportAction = UICommand(title: "Export as PDF", action: #selector(exportAsPDF))
+            let editBook = UICommand(title: "Edit", action: #selector(presentAddManuallyVC))
+            
             let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-                let children: [UIMenuElement] = [exportAction]
+                var children: [UIMenuElement] = [exportAction]
+                children.append(editBook)
+                
                 return UIMenu(title: "", children: children)
             }
-            
             
             return configuration
         } else {
@@ -178,7 +198,6 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
     }
     
     @objc func exportAsPDF(){
-        // export
         
         guard (bookToExport?.childChapter!.count)! > 0 else {
             let alertController = UIAlertController(title: "Book has no Chapters", message: "Add chapters within the book to Export as PDF", preferredStyle: .alert)
@@ -202,11 +221,16 @@ extension BookShelfViewController: UIContextMenuInteractionDelegate {
         let activityVC = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
         //needs an anchor for iPad
         activityVC.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexOfBookToExport!)
-          
+        
         present(activityVC, animated: true)
         
         // set book to export to nil
         bookToExport = nil
+    }
+    
+    @objc func presentAddManuallyVC(){
+        // present book info page
+        performSegue(withIdentifier: K.editBookSegueID, sender: self)
     }
 }
 

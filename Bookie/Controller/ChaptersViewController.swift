@@ -40,6 +40,7 @@ class ChaptersViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         // because date modified will change after note is edited
         tableView.reloadData()
+        tableView.rowHeight = 90
     }
     
     private func refreshTableViewBackground(){
@@ -51,6 +52,7 @@ class ChaptersViewController: UITableViewController {
         alertController.addTextField { textField in
             textField.text = "Chapter \(self.chapters.count + 1): "
             textField.spellCheckingType = .yes
+            textField.autocapitalizationType = .words
         }
         
         let addAction = UIAlertAction(title: "Add", style: .default) { _ in

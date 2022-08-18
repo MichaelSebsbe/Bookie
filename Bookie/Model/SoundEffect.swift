@@ -31,6 +31,7 @@ class SoundEffect {
            
             audioPlayer!.play()
             
+
         } catch {
             print("Setting up audio player \(error.localizedDescription)")
         }

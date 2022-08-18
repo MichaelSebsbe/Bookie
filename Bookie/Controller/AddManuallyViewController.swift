@@ -18,12 +18,13 @@ class AddManuallyViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    var book: Book?
+    var bookIndexOnShelf: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         setupUI()
     }
     
@@ -31,12 +32,28 @@ class AddManuallyViewController: UIViewController {
     func setupUI() {
         addCoverButton.tintColor = AppColors.cellSecondaryColor
         doneButton.tintColor = AppColors.cellSecondaryColor
+        
+        titleTextField.tintColor = AppColors.cellSecondaryColor
+        authorTextField.tintColor = AppColors.cellSecondaryColor
+        
         coverImageView.layer.cornerRadius = 5
-        coverImageView.image = UIImage(systemName: "book")
+        coverImageView.image = UIImage(systemName: "book.closed.fill")
         coverImageView.tintColor = AppColors.cellSecondaryColor
-        doneButton.isEnabled = false
+        coverImageView.contentMode = .scaleAspectFit
+        
         cancelButton.tintColor = AppColors.cellSecondaryColor
         
+        if let book = book {
+            titleTextField.text = book.title
+            authorTextField.text = book.author
+            
+            if let imageData = book.imageData {
+                coverImageView.image = UIImage(data:imageData)
+                addCoverButton.setTitle("Change Cover", for: .normal)
+            }
+        } else {
+            doneButton.isEnabled = false
+        }
     }
     
     @IBAction func addCoverButtonTapped(_ sender: Any) {
@@ -80,30 +97,39 @@ class AddManuallyViewController: UIViewController {
         let book = BookSearch(title: titleTextField.text!, author: authorTextField.text, isbn: nil, image: coverImageView.image)
         
         self.dismiss(animated: true)
-        bookShelfVC.addBook(book)
+        
+        //if user was editing a book
+        if let indexPath = bookIndexOnShelf{
+            bookShelfVC.addBook(book, at: indexPath)
+        }
+        // if user was adding book manually
+        else {
+            bookShelfVC.addBook(book)
+        }
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    @IBAction func titleTextFieldNextTapped(_ sender: UITextField) {
-        authorTextField.becomeFirstResponder()
-        
-        if sender.hasText && authorTextField.hasText {
+    
+    @IBAction func textFieldsDidChange(_ sender: UITextField) {
+       updateDoneButton()
+    }
+    
+    private func updateDoneButton(){
+        if titleTextField.hasText && authorTextField.hasText {
             doneButton.isEnabled = true
         } else {
             doneButton.isEnabled = false
         }
     }
     
+    @IBAction func titleTextFieldNextTapped(_ sender: UITextField) {
+        authorTextField.becomeFirstResponder()
+    }
+    
     @IBAction func authorTextFieldDoneTapped(_ sender: UITextField) {
         sender.resignFirstResponder()
-        
-        if sender.hasText && titleTextField.hasText {
-            doneButton.isEnabled = true
-        } else {
-            doneButton.isEnabled = false
-        }
     }
 }
 
@@ -111,13 +137,7 @@ extension AddManuallyViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let photo = info[.originalImage] as? UIImage {
-            
-            let frameSize = CGSize(width: 200, height: 300)
-            let croppedPhoto = photo.crop(to: frameSize)
-            
-            coverImageView.image = croppedPhoto
-            coverImageView.contentMode = .scaleAspectFit
-            
+            coverImageView.image = photo
             addCoverButton.setTitle("Change Photo", for: .normal)
             
             picker.dismiss(animated: true)

@@ -30,7 +30,7 @@
 		AD7B573928A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7B573828A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift */; };
 		AD9664C02891971E00095319 /* PDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9664BF2891971E00095319 /* PDFCreator.swift */; };
 		ADABA2D02876209800449CDA /* pageFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2CF2876209800449CDA /* pageFlip.mp3 */; };
-		ADABA2D2287620D800449CDA /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABA2D1287620D800449CDA /* SoundEffects.swift */; };
+		ADABA2D2287620D800449CDA /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADABA2D1287620D800449CDA /* SoundEffect.swift */; };
 		ADABA2D52876229F00449CDA /* deletion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2D32876229F00449CDA /* deletion.mp3 */; };
 		ADABA2D62876229F00449CDA /* bookClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ADABA2D42876229F00449CDA /* bookClose.mp3 */; };
 		ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD449A528733878006930F0 /* ChaptersViewController.swift */; };
@@ -81,7 +81,7 @@
 		AD7B573828A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringTransformer.swift; sourceTree = "<group>"; };
 		AD9664BF2891971E00095319 /* PDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFCreator.swift; sourceTree = "<group>"; };
 		ADABA2CF2876209800449CDA /* pageFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pageFlip.mp3; sourceTree = "<group>"; };
-		ADABA2D1287620D800449CDA /* SoundEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
+		ADABA2D1287620D800449CDA /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		ADABA2D32876229F00449CDA /* deletion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = deletion.mp3; sourceTree = "<group>"; };
 		ADABA2D42876229F00449CDA /* bookClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bookClose.mp3; sourceTree = "<group>"; };
 		ADD449A528733878006930F0 /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +148,6 @@
 			children = (
 				AD61C51328732CC700978F46 /* LaunchScreen.storyboard */,
 				AD61C50B28732CC200978F46 /* Main.storyboard */,
-				AD049EC628A6F59100000BFC /* AddManuallyViewController.swift */,
 				AD3AB867287495190082C8D6 /* BookCell.swift */,
 			);
 			path = View;
@@ -162,6 +161,7 @@
 				ADF0EC5D2873648E00739526 /* NoteViewController.swift */,
 				AD3AB869287496110082C8D6 /* SearchViewController.swift */,
 				AD442CB4289ACE27005198C1 /* NavigationController.swift */,
+				AD049EC628A6F59100000BFC /* AddManuallyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 				AD3AB86D28749A1C0082C8D6 /* NetworkRequest.swift */,
 				AD3AB871287500040082C8D6 /* Constants&Colors.swift */,
 				AD6A1722289DBA90004218BE /* AnimationManager.swift */,
-				ADABA2D1287620D800449CDA /* SoundEffects.swift */,
+				ADABA2D1287620D800449CDA /* SoundEffect.swift */,
 				ADECEF48287DE39600AC692E /* Extensions.swift */,
 				AD7B573828A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift */,
 			);
@@ -337,7 +337,7 @@
 				AD049EC728A6F59200000BFC /* AddManuallyViewController.swift in Sources */,
 				AD3AB8702874AB050082C8D6 /* SearchResponse.swift in Sources */,
 				ADECEF49287DE39600AC692E /* Extensions.swift in Sources */,
-				ADABA2D2287620D800449CDA /* SoundEffects.swift in Sources */,
+				ADABA2D2287620D800449CDA /* SoundEffect.swift in Sources */,
 				AD3AB86E28749A1C0082C8D6 /* NetworkRequest.swift in Sources */,
 				ADD449A628733878006930F0 /* ChaptersViewController.swift in Sources */,
 				AD61C50828732CC200978F46 /* SceneDelegate.swift in Sources */,

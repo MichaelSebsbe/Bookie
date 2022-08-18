@@ -18,6 +18,8 @@ struct K {
     static let emptyChaptersArt = "EmptyChapters"
     static let searchArt = "SearchArt"
     static let appLogo = "Logo"
+    static let seguetoTabBar = "goto search & add TabBar"
+    static let editBookSegueID = "goToEditBook"
 }
 
 struct AppColors {

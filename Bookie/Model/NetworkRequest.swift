@@ -67,7 +67,7 @@ struct NetworkRequest {
     
     //HELPER Fucntions
     static private func createImageURL(iSBN: String) -> URL? {
-        return URL(string: "https://covers.openlibrary.org/b/isbn/\(iSBN)-S.jpg")
+        return URL(string: "https://covers.openlibrary.org/b/isbn/\(iSBN)-M.jpg")
     }
     
     static private func createISBNSearchURL(from searchString: String) -> URL {

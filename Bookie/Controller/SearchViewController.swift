@@ -131,7 +131,7 @@ extension SearchViewController: UISearchBarDelegate {
                         searchResults = bookSearch
                     } else {
                         searchResults = []
-                        self.cantFindLabel.isHidden = false
+                        cantFindLabel.isHidden = false
                     }
                     
                     DispatchQueue.main.async {
@@ -142,6 +142,26 @@ extension SearchViewController: UISearchBarDelegate {
                     
                 } catch {
                     print(error.localizedDescription)
+                    // if not connected to internet
+                    if let error = error as? NSError,
+                       error.code == -1020 {
+                        spinner.stopAnimating()
+                        
+                        let alertController = UIAlertController(title: "No internet connection", message: "please check your internet connection to load book info from online library, or add book information manually.", preferredStyle: .alert)
+                        
+                        let retryAction = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+                            self?.searchBarSearchButtonClicked(self!.searchBar)
+                        }
+                        
+                        let addManuallyAction = UIAlertAction(title: "Add Manually", style: .default) {[weak self] _ in
+                            self?.tabBarController?.selectedIndex = 1
+                        }
+                        
+                        alertController.addAction(retryAction)
+                        alertController.addAction(addManuallyAction)
+                        
+                        present(alertController, animated: true)
+                    }
                 }
             }
         }
