@@ -27,3 +27,5 @@ A book summary App, to write your summaries in an organized way so you don't eve
 ## Attributions 
 - Illustrations
 <a href="https://www.freepik.com/vectors/design-pack">Design pack vector created by freepik - www.freepik.com</a> 
+
+## Note: This branch only runs on a physical device
