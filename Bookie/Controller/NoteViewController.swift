@@ -61,12 +61,10 @@ class NoteViewController: UIViewController, UITextViewDelegate {
         view.addSubview(textView)
         
         textView.delegate = self
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         textView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         // to adjust the content insets based on keyboard height

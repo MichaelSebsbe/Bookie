@@ -17,6 +17,8 @@ class ChaptersViewController: UITableViewController {
             refreshTableViewBackground()
         }
     }
+    var indexOfChapterToEdit: IndexPath?
+    var chapterToEdit: Chapter?
     
     required init?(coder: NSCoder) {
         chapters = []
@@ -104,6 +106,11 @@ class ChaptersViewController: UITableViewController {
         return chapters.count
     }
     
+    // add the context menu to cells
+    private func addInteraction(toCell cell: UITableViewCell) {
+        let interaction = UIContextMenuInteraction(delegate: self)
+        cell.addInteraction(interaction)
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChapterCell", for: indexPath)
@@ -113,8 +120,9 @@ class ChaptersViewController: UITableViewController {
         
         content.text = chapter.title
         content.secondaryAttributedText = NSAttributedString(string: "Last modified \(chapter.lastModified?.formatted() ?? "NA")", attributes: [NSAttributedString.Key.foregroundColor : AppColors.cellSecondaryColor])
-        
         cell.contentConfiguration = content
+        
+        addInteraction(toCell: cell)
         
         return cell
     }
@@ -164,5 +172,64 @@ class ChaptersViewController: UITableViewController {
         let noteVC = segue.destination as! NoteViewController
         let index = tableView.indexPathForSelectedRow?.row
         noteVC.chapter = chapters[index!]
+    }
+}
+
+extension ChaptersViewController: UIContextMenuInteractionDelegate {
+    
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        // i have to use this becuase the passed location arg uses the view and no the tableview
+        let location = interaction.location(in: self.tableView)
+        
+        if let indexPath = tableView.indexPathForRow(at: location){
+            indexOfChapterToEdit = indexPath
+            chapterToEdit = chapters[indexPath.row]
+            
+            let editChapter = UICommand(title: "Edit", action: #selector(presentEditAlert))
+            
+            let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+                let children: [UIMenuElement] = [editChapter]
+                
+                return UIMenu(title: "", children: children)
+            }
+            
+            return configuration
+            
+            
+        } else {
+            return nil
+        }
+    }
+    
+    @objc func presentEditAlert() {
+        let alertController = UIAlertController(title: "Edit Chapter", message: "Enter Chapter Title", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.text = self.chapterToEdit?.title
+            textField.spellCheckingType = .yes
+            textField.autocapitalizationType = .words
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let doneAction = UIAlertAction(title: "Done", style: .default) { [weak self]_ in
+            if let textfield = alertController.textFields?.first,
+               let text = textfield.text,
+               (text.count > 0) && !self!.chapters.contains(where: { $0.title == textfield.text
+               }){
+                self!.chapters[self!.indexOfChapterToEdit!.row].title = text
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadRows(at: [self!.indexOfChapterToEdit!], with: .fade)
+                    CoreDataManager.shared.saveItems()
+                }
+            } else {
+                alertController.message = "Enter a Valid title"
+                alertController.textFields?.first?.text = self?.chapterToEdit?.title
+                self?.present(alertController, animated: true)
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(doneAction)
+        self.present(alertController, animated: true)
     }
 }

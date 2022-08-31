@@ -25,6 +25,7 @@
 		AD61C51228732CC700978F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51128732CC700978F46 /* Assets.xcassets */; };
 		AD61C51528732CC700978F46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD61C51328732CC700978F46 /* LaunchScreen.storyboard */; };
 		AD61C51E28732D4A00978F46 /* BookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */; };
+		AD658CDE28B014040012D18D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD658CDD28B014040012D18D /* StoreKit.framework */; };
 		AD6846102876049000F9607D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD68460F2876049000F9607D /* MapKit.framework */; };
 		AD6A1723289DBA90004218BE /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A1722289DBA90004218BE /* AnimationManager.swift */; };
 		AD7B573928A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7B573828A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift */; };
@@ -76,6 +77,7 @@
 		AD61C51428732CC700978F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD61C51628732CC700978F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD61C51D28732D4A00978F46 /* BookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfViewController.swift; sourceTree = "<group>"; };
+		AD658CDD28B014040012D18D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AD68460F2876049000F9607D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AD6A1722289DBA90004218BE /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		AD7B573828A6BA8D005B3497 /* NSMutableAttributedStringTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringTransformer.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				AD6846102876049000F9607D /* MapKit.framework in Frameworks */,
 				8ABADE22DD3BEB63DA901772 /* Pods_Bookie.framework in Frameworks */,
 				AD471EEB28AD9A5A000B3F19 /* NotesTextView.framework in Frameworks */,
+				AD658CDE28B014040012D18D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +172,7 @@
 		AD68460E2876049000F9607D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD658CDD28B014040012D18D /* StoreKit.framework */,
 				AD68460F2876049000F9607D /* MapKit.framework */,
 				AD471EE928AD9A4F000B3F19 /* NotesTextView.framework */,
 				C707B4B87A2E5F043AE5B513 /* Pods_Bookie.framework */,
